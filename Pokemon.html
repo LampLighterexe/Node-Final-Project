@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style>
+		a {
+			color:rgb(176, 255, 176);
+		}
+		h1, h3{
+			color:rgb(16, 17, 16);
+}
+	</style>
+
+	<span><a href="http://localhost:3000/index.html">Index</a></span>
+
+	<head>
+		<title>Army Builder</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<Style>
+        
+        h1, h2 
+        {
+            font-size: 80px;
+            -webkit-text-stroke:  1px rgb(7, 146, 170);
+        }
+
+		img 
+        {
+			border: 4px solid rgb(0, 0, 0);
+			width: 400px;
+            height: 300px;
+			margin-left: auto;
+            margin-right : auto;
+            display: block;
+		}
+        
+	</Style>
+	</head>
+
+	<body>
+		<body style="background-image: url('https://images.unsplash.com/photo-1585314062604-1a357de8b000?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80'); background-size: cover">
+
+		<h1 style="color:rgb(0, 11, 46);"><b><u><center>Pokemon</center></u></b></h1>
+        
+		<div id="output"></div>
+
+	
+	
+	<script>	
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+	function makeArmy()
+	{
+		var memeURL = document.getElementById("Input").value;
+		console.log(memeURL)
+
+		var xhr = new XMLHttpRequest();
+
+		xhr.open("GET", "http://localhost:3000/addMeme?memeURL=" + memeURL)
+
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+		xhr.onreadystatechange = () =>{
+			console.log(xhr.responseText)
+		} 
+		xhr.send()
+
+		//document.getElementById('Input').value = ''
+	}
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+		function update()
+		{
+		if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+			document.getElementById("output").innerHTML = this.responseText;
+		}
+		};
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+		event.preventDefualt();
+			
+	</script>
+
+	</body>
+</html>
