@@ -38,24 +38,15 @@ async function saveFile(fileName)
     }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-async function makeArmy(armyName, warlordName, infantry, cavarly, airforce)
+async function makeTeam(pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6)
 {
-    if(airforce == true)
-    {
-        airforce = 0;
-    }
-    else
-    {
-        airforce = 1;
-    }
-    console.log('Airforce: ' + airforce)
     try
     {
         // make sure that any items are correctly URL encoded in the connection string
         await sql.connect(CONNECTION)
 
-        await sql.query("Insert INTO Army VALUES(' " + armyName + " ',' " + warlordName + " ' , " + infantry + ", " + cavarly + ", " + airforce + " )")
-        console.dir("Make Army inserted")
+        await sql.query("Insert INTO Team VALUES(' " + pokemon1 + " ',' " + pokemon2 + " ' , '" + pokemon3 + "', '" + pokemon4 + "', '" + pokemon5 + "', '" + pokemon6 + "' )")
+        console.dir("Pokemon Team inserted inserted")
     }
         
     catch (err)       
@@ -74,8 +65,8 @@ async function getPokemon()
         var pokemonNames = await sql.query("Select pokedexName from Pokedex")
         console.dir("Selected pokemon names in dao")
 
-        console.log(pokemonNames.recordset[0].pokedexName)
-        return pokemonNames.recordset[0].pokedexName;
+        //console.log(pokemonNames)
+        return pokemonNames;
     }
         
     catch (err)       
@@ -197,7 +188,7 @@ async function getMeme()
 module.exports = 
 {
     saveFile,
-    makeArmy,
+    makeTeam,
     getArmyPower,
     saveBattle,
     getMeme,
