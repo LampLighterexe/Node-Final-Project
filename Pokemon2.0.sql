@@ -1,116 +1,115 @@
-<!DOCTYPE html>
-<html>
+/*
+drop table Team
+drop table Pokedex
+*/
+--create database corbyn;
+--go
+use corbyn;
 
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<style>
-		a {
-			color:rgb(176, 255, 176);
-		}
-		h1, h3{
-			color:rgb(16, 17, 16);
-}
-	</style>
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		--Team--
+Create table Team
+(
+trainerID INT,
+pokemon#1 varchar(20),
+pokemon#2 varchar(20),
+pokemon#3 varchar(20),
+pokemon#4 varchar(20),
+pokemon#5 varchar(20),
+pokemon#6 varchar(20),
+Foreign Key (trainerID)  References Trainer(id)
+);
+---------------------------------------------
+		--Pokedex--
+Create table Pokedex
+(
+pokedexNum INT,
+pokedexName VARCHAR(20),
+pokemonType VARCHAR(20),
+);
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+				--Pokedex Inserts--
 
-	<span><a href="http://localhost:3000/index.html">Index</a></span>
+--(Pokemon Number, Pokemon Name, Pokemon Type)
+Insert into Pokedex Values(1, 'Bulbasaur', 'Grass/Poison')
+Insert into Pokedex Values(2, 'Ivysaur', 'Grass/Poison')
+Insert into Pokedex Values(3, 'Venusaur', 'Grass/Poison')
+---------------------------------------------------------------------
+Insert into Pokedex Values(4, 'Charmander', 'Fire')
+Insert into Pokedex Values(5, 'Charmeleon', 'Fire')
+Insert into Pokedex Values(6, 'Charizard', 'Fire/Flying')
+---------------------------------------------------------------------
+Insert into Pokedex Values(7, 'Squirtle', 'Water')
+Insert into Pokedex Values(8, 'Wartortle', 'Water')
+Insert into Pokedex Values(9, 'Blastoise', 'Water')
+---------------------------------------------------------------------
+Insert into Pokedex Values(10, 'Caterpie', 'Bug')
+Insert into Pokedex Values(11, 'Metapod', 'Bug')
+Insert into Pokedex Values(12, 'Butterfree', 'Bug/Flying')
+---------------------------------------------------------------------
+Insert into Pokedex Values(13, 'Weedle', 'Bug/Poison')
+Insert into Pokedex Values(14, 'Kakuna', 'Bug/Poison')
+Insert into Pokedex Values(15, 'Beedrill', 'Bug/Poison')
+---------------------------------------------------------------------
+Insert into Pokedex Values(16, 'Pidgey', 'Flying/Normal')
+Insert into Pokedex Values(17, 'Pidgeotto', 'Flying/Normal')
+Insert into Pokedex Values(18, 'Pidgeot', 'Flying/Normal')
+---------------------------------------------------------------------
+Insert into Pokedex Values(19, 'Rattata', 'Normal')
+Insert into Pokedex Values(20, 'Raticate', 'Normal')
+---------------------------------------------------------------------
+Insert into Pokedex Values(21, 'Spearow', 'Normal/Flying')
+Insert into Pokedex Values(22, 'Fearow', 'Normal/Flying')
+---------------------------------------------------------------------
+Insert into Pokedex Values(23, 'Ekans', 'Poison')
+Insert into Pokedex Values(24, 'Arbok', 'Poison')
+---------------------------------------------------------------------
+Insert into Pokedex Values(25, 'Pikachu', 'Electric')
+Insert into Pokedex Values(26, 'Raichu', 'Electric')
+---------------------------------------------------------------------
+Insert into Pokedex Values(27, 'Sandshrew', 'Ground')
+Insert into Pokedex Values(28, 'Sandslash', 'Ground')
+---------------------------------------------------------------------
+Insert into Pokedex Values(29, 'Nidoran', 'Poison')
+Insert into Pokedex Values(30, 'Nidorina', 'Poison')
+Insert into Pokedex Values(31, 'Nidoqueen', 'Poison')
+---------------------------------------------------------------------
+Insert into Pokedex Values(32, 'Nidoran', 'Poison')
+Insert into Pokedex Values(33, 'Nidorino', 'Poison')
+Insert into Pokedex Values(34, 'Nidoking', 'Poison')
+---------------------------------------------------------------------
+Insert into Pokedex Values(35, 'Clefairy', 'Fairy')
+Insert into Pokedex Values(36, 'Clefable', 'Fairy')
+---------------------------------------------------------------------
+Insert into Pokedex Values(37, 'Vulpix', 'Fire')
+Insert into Pokedex Values(38, 'Ninetales', 'Fire')
+---------------------------------------------------------------------
+Insert into Pokedex Values(39, 'Jigglypuff', 'Normal/Fairy')
+Insert into Pokedex Values(40, 'Wigglytuff', 'Normal/Fairy')
+---------------------------------------------------------------------
+Insert into Pokedex Values(41, 'Zoobat', 'Poison/Flying')
+Insert into Pokedex Values(42, 'Golbat', 'Poison/Flying')
+---------------------------------------------------------------------
+Insert into Pokedex Values(43, 'oddish', 'Grass/Poison')
+Insert into Pokedex Values(44, 'Gloom', 'Grass/Poison')
+Insert into Pokedex Values(45, 'Vileplume', 'Grass/Poison')
+---------------------------------------------------------------------
+Insert into Pokedex Values(46, 'Paras', 'Bug/Grass')
+Insert into Pokedex Values(47, 'Parasect', 'Bug/Grass')
+---------------------------------------------------------------------
+Insert into Pokedex Values(48, 'Venonat', 'Bug/Poison')
+Insert into Pokedex Values(49, 'Venomoth', 'Bug/Poison')
+---------------------------------------------
+				--Team Inserts--
 
-	<head>
-		<title>Pokemon</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<Style>
-        
-        h1
-        {
-            font-size: 80px;
-            -webkit-text-stroke:  1px rgb(7, 146, 170);
-        }
-        h2, h3 
-        {
-            color: rgb(7, 146, 170)
-        }
+--(Trainer ID, Pokemon 1-6)
+Insert into Team Values(0, 'Pikachu', 'Butterfree', 'Pidgeotto', 'Bulbasaur', 'Charizard', 'Squirtle')
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+				--Table Selects--
 
-		img 
-        {
-			border: 4px solid rgb(0, 0, 0);
-			width: 400px;
-            height: 300px;
-			margin-left: auto;
-            margin-right : auto;
-            display: block;
-		}
-        
-	</Style>
-	</head>
+--Select
+Select * From Team
+Select * From Pokedex
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	<body onload="dropdown()">
-		<body style="background-image: url('https://images.unsplash.com/photo-1585314062604-1a357de8b000?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80'); background-size: cover">
-
-		<h1 style="color:rgb(0, 11, 46);"><b><u><center>Pokemon</center></u></b></h1>
-
-        <h3>Pick a pokemon to add to your team</h3>
-
-        <select name="pokemon" id="pokemon">	</select>
-	
-
-	
-	
-	<script>	
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-	function makeArmy()
-	{
-		var memeURL = document.getElementById("Input").value;
-		console.log(memeURL)
-
-		var xhr = new XMLHttpRequest();
-
-		xhr.open("GET", "http://localhost:3000/addMeme?memeURL=" + memeURL)
-
-		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
-		xhr.onreadystatechange = () =>{
-			console.log(xhr.responseText)
-		} 
-		xhr.send()
-
-		//document.getElementById('Input').value = ''
-	}
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-function dropdown()
-	{
-		var xhr = new XMLHttpRequest();
-
-		xhr.open("GET", "http://localhost:3000/getPokemonNames", true)
-
-		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
-		
-		xhr.onreadystatechange = () => 
-		{
-		
-			if(XMLHttpRequest.DONE && xhr.status == 200)
-			{
-				var data = JSON.parse(xhr.responseText)
-				console.log(data)
-				var option = "";
-
-					for(r in data.recordset)
-					{
-						//table += "<td>" + data.recordset[r].numStars + "</td>";
-						option += "<option value = '" + data.recordset[r].pokemonName + "''>" + data.recordset[r].pokemonName + "</option>"
-					}
-
-					document.getElementById("pokemon").innerHTML = option;
-			} 
-		}
-		xhr.send()
-	}
-		function update()
-		{
-		if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-			document.getElementById("output").innerHTML = this.responseText;
-		}
-		};
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-		event.preventDefualt();
-			
-	</script>
-
-	</body>
-</html>
+--truncate table Team
