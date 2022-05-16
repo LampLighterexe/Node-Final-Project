@@ -19,36 +19,6 @@ app.get('/gimme',(req, res) =>
   res.status(200).sendFile('file:///' + __dirname + '//public//')
   )
 ///////////////////////////////////////////////////////////
-app.post('/profile', upload.single('avatar'), function (req, res, next) {
-  //await dao.saveFile(req.file.filename)
-  dao.saveFile(req.file.filename)
-  // req.file is the `avatar` file
-  // req.body will hold the text fields, if there were any
-  res.status(200).send()
-})
-///////////////////////////////////////////////////////////
-app.post('/photos/upload', upload.array('photos', 12), function (req, res, next) {
-  // req.files is array of `photos` files
-  // req.body will contain the text fields, if there were any
-})
-///////////////////////////////////////////////////////////
-const cpUpload = upload.fields([{ name: 'avatar', maxCount: 1 }, { name: 'gallery', maxCount: 8 }])
-app.post('/cool-profile', cpUpload, function (req, res, next) {
-  // req.files is an object (String -> Array) where fieldname is the key, and the value is array of files
-  //
-  // e.g.
-  //  req.files['avatar'][0] -> File
-  //  req.files['gallery'] -> Array
-  //
-  // req.body will contain the text fields, if there were any
-})
-///////////////////////////////////////////////////////////
-app.post('/stats', upload.single('uploaded_file'), function (req, res) {
-   // req.file is the name of your file in the form above, here 'uploaded_file'
-   // req.body will hold the text fields, if there were any 
-   console.log(req.file, req.body)
-});
-///////////////////////////////////////////////////////////
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname + '/public')));
@@ -100,6 +70,7 @@ app.get('/getPokemonNames',async (req, res) =>
   {
     var pokemonNames = await dao.getPokemon()
 
+    //console.log(pokemonNames)
     res.status(200).send(pokemonNames)
     
     console.log('pokemon names app.js')
@@ -135,24 +106,27 @@ app.get('/saveBattle',async (req, res) =>
     await dao.saveBattle(battleName, army1, army2, result) 
   })
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Army Builder
-app.get('/makeArmy',async (req, res) =>
+//Pokemon Team Add
+app.get('/makeTeam',async (req, res) =>
   {
     //await sql.connect('Server=localhost,1433;Database=corbyn;User Id=Test;Password=Test;Encrypt=false')
 
-    var armyName = req.query.armyName;
-    var warlordName = req.query.warlordName;
-    var infantry = req.query.infantry;
-    var cavarly = req.query.cavarly;
-    var airforce = req.query.airforce;
-    console.log("App.js")
-    console.log(armyName)
-		console.log(warlordName)
-		console.log(infantry)
-		console.log(cavarly)
-		console.log(airforce)
+    var pokemon1 = req.query.pokemon1;
+    var pokemon2 = req.query.pokemon2;
+    var pokemon3 = req.query.pokemon3;
+    var pokemon4 = req.query.pokemon4;
+    var pokemon5 = req.query.pokemon5;
+    var pokemon6 = req.query.pokemon6;
 
-    await dao.makeArmy(armyName, warlordName, infantry, cavarly, airforce)
+    console.log("make team App.js")
+    console.log(pokemon1)
+		console.log(pokemon2)
+    console.log(pokemon3)
+    console.log(pokemon4)
+    console.log(pokemon5)
+    console.log(pokemon6)
+
+    await dao.makeTeam(pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6)
   })
 app.listen(port, () => 
 {
