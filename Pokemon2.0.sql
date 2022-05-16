@@ -10,106 +10,111 @@ use corbyn;
 		--Team--
 Create table Team
 (
-trainerID INT,
+trainerID INT Identity(1,1),
 pokemon#1 varchar(20),
 pokemon#2 varchar(20),
 pokemon#3 varchar(20),
 pokemon#4 varchar(20),
 pokemon#5 varchar(20),
 pokemon#6 varchar(20),
-Foreign Key (trainerID)  References Trainer(id)
 );
 ---------------------------------------------
 		--Pokedex--
 Create table Pokedex
 (
-pokedexNum INT,
+pokedexNum INT Identity(1,1),
 pokedexName VARCHAR(20),
-pokemonType VARCHAR(20),
+pokemonType1 VARCHAR(20),
+pokemonType2 VARCHAR(20),
 );
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 				--Pokedex Inserts--
 
---(Pokemon Number, Pokemon Name, Pokemon Type)
-Insert into Pokedex Values(1, 'Bulbasaur', 'Grass/Poison')
-Insert into Pokedex Values(2, 'Ivysaur', 'Grass/Poison')
-Insert into Pokedex Values(3, 'Venusaur', 'Grass/Poison')
+--(Pokemon Name, Pokemon Type)
+Insert into Pokedex Values('Bulbasaur', 'Grass', 'Poison')
+Insert into Pokedex Values('Ivysaur', 'Grass', 'Poison')
+Insert into Pokedex Values('Venusaur', 'Grass', 'Poison')
 ---------------------------------------------------------------------
-Insert into Pokedex Values(4, 'Charmander', 'Fire')
-Insert into Pokedex Values(5, 'Charmeleon', 'Fire')
-Insert into Pokedex Values(6, 'Charizard', 'Fire/Flying')
+Insert into Pokedex Values('Charmander', 'Fire', 'null')
+Insert into Pokedex Values('Charmeleon', 'Fire', 'null')
+Insert into Pokedex Values('Charizard', 'Fire', 'Flying')
 ---------------------------------------------------------------------
-Insert into Pokedex Values(7, 'Squirtle', 'Water')
-Insert into Pokedex Values(8, 'Wartortle', 'Water')
-Insert into Pokedex Values(9, 'Blastoise', 'Water')
+Insert into Pokedex Values('Squirtle', 'Water', 'null')
+Insert into Pokedex Values('Wartortle', 'Water', 'null')
+Insert into Pokedex Values('Blastoise', 'Water', 'null')
 ---------------------------------------------------------------------
-Insert into Pokedex Values(10, 'Caterpie', 'Bug')
-Insert into Pokedex Values(11, 'Metapod', 'Bug')
-Insert into Pokedex Values(12, 'Butterfree', 'Bug/Flying')
+Insert into Pokedex Values('Caterpie', 'Bug', 'null')
+Insert into Pokedex Values('Metapod', 'Bug', 'null')
+Insert into Pokedex Values('Butterfree', 'Bug', 'Flying')
 ---------------------------------------------------------------------
-Insert into Pokedex Values(13, 'Weedle', 'Bug/Poison')
-Insert into Pokedex Values(14, 'Kakuna', 'Bug/Poison')
-Insert into Pokedex Values(15, 'Beedrill', 'Bug/Poison')
+Insert into Pokedex Values('Weedle', 'Bug', 'Poison')
+Insert into Pokedex Values('Kakuna', 'Bug', 'Poison')
+Insert into Pokedex Values('Beedrill', 'Bug', 'Poison')
 ---------------------------------------------------------------------
-Insert into Pokedex Values(16, 'Pidgey', 'Flying/Normal')
-Insert into Pokedex Values(17, 'Pidgeotto', 'Flying/Normal')
-Insert into Pokedex Values(18, 'Pidgeot', 'Flying/Normal')
+Insert into Pokedex Values('Pidgey', 'Flying', 'Normal')
+Insert into Pokedex Values( 'Pidgeotto', 'Flying', 'Normal')
+Insert into Pokedex Values('Pidgeot', 'Flying', 'Normal')
 ---------------------------------------------------------------------
-Insert into Pokedex Values(19, 'Rattata', 'Normal')
-Insert into Pokedex Values(20, 'Raticate', 'Normal')
+Insert into Pokedex Values('Rattata', 'Normal', 'null')
+Insert into Pokedex Values('Raticate', 'Normal', 'null')
 ---------------------------------------------------------------------
-Insert into Pokedex Values(21, 'Spearow', 'Normal/Flying')
-Insert into Pokedex Values(22, 'Fearow', 'Normal/Flying')
+Insert into Pokedex Values('Spearow', 'Normal', 'Flying')
+Insert into Pokedex Values('Fearow', 'Normal', 'Flying')
 ---------------------------------------------------------------------
-Insert into Pokedex Values(23, 'Ekans', 'Poison')
-Insert into Pokedex Values(24, 'Arbok', 'Poison')
+Insert into Pokedex Values('Ekans', 'Poison', 'null')
+Insert into Pokedex Values('Arbok', 'Poison', 'null')
 ---------------------------------------------------------------------
-Insert into Pokedex Values(25, 'Pikachu', 'Electric')
-Insert into Pokedex Values(26, 'Raichu', 'Electric')
+Insert into Pokedex Values('Pikachu', 'Electric', 'null')
+Insert into Pokedex Values('Raichu', 'Electric', 'null')
 ---------------------------------------------------------------------
-Insert into Pokedex Values(27, 'Sandshrew', 'Ground')
-Insert into Pokedex Values(28, 'Sandslash', 'Ground')
+Insert into Pokedex Values('Sandshrew', 'Ground', 'null')
+Insert into Pokedex Values('Sandslash', 'Ground', 'null')
 ---------------------------------------------------------------------
-Insert into Pokedex Values(29, 'Nidoran', 'Poison')
-Insert into Pokedex Values(30, 'Nidorina', 'Poison')
-Insert into Pokedex Values(31, 'Nidoqueen', 'Poison')
+Insert into Pokedex Values('Nidoran', 'Poison', 'null')
+Insert into Pokedex Values('Nidorina', 'Poison', 'null')
+Insert into Pokedex Values('Nidoqueen', 'Poison', 'null')
 ---------------------------------------------------------------------
-Insert into Pokedex Values(32, 'Nidoran', 'Poison')
-Insert into Pokedex Values(33, 'Nidorino', 'Poison')
-Insert into Pokedex Values(34, 'Nidoking', 'Poison')
+Insert into Pokedex Values('Nidoran', 'Poison', 'null')
+Insert into Pokedex Values('Nidorino', 'Poison', 'null')
+Insert into Pokedex Values('Nidoking', 'Poison', 'null')
 ---------------------------------------------------------------------
-Insert into Pokedex Values(35, 'Clefairy', 'Fairy')
-Insert into Pokedex Values(36, 'Clefable', 'Fairy')
+Insert into Pokedex Values('Clefairy', 'Fairy', 'null')
+Insert into Pokedex Values('Clefable', 'Fairy', 'null')
 ---------------------------------------------------------------------
-Insert into Pokedex Values(37, 'Vulpix', 'Fire')
-Insert into Pokedex Values(38, 'Ninetales', 'Fire')
+Insert into Pokedex Values('Vulpix', 'Fire', 'null')
+Insert into Pokedex Values('Ninetales', 'Fire', 'null')
 ---------------------------------------------------------------------
-Insert into Pokedex Values(39, 'Jigglypuff', 'Normal/Fairy')
-Insert into Pokedex Values(40, 'Wigglytuff', 'Normal/Fairy')
+Insert into Pokedex Values('Jigglypuff', 'Normal', 'Fairy')
+Insert into Pokedex Values('Wigglytuff', 'Normal', 'Fairy')
 ---------------------------------------------------------------------
-Insert into Pokedex Values(41, 'Zoobat', 'Poison/Flying')
-Insert into Pokedex Values(42, 'Golbat', 'Poison/Flying')
+Insert into Pokedex Values('Zoobat', 'Poison', 'Flying')
+Insert into Pokedex Values('Golbat', 'Poison', 'Flying')
 ---------------------------------------------------------------------
-Insert into Pokedex Values(43, 'oddish', 'Grass/Poison')
-Insert into Pokedex Values(44, 'Gloom', 'Grass/Poison')
-Insert into Pokedex Values(45, 'Vileplume', 'Grass/Poison')
+Insert into Pokedex Values('oddish', 'Grass', 'Poison')
+Insert into Pokedex Values('Gloom', 'Grass', 'Poison')
+Insert into Pokedex Values('Vileplume', 'Grass', 'Poison')
 ---------------------------------------------------------------------
-Insert into Pokedex Values(46, 'Paras', 'Bug/Grass')
-Insert into Pokedex Values(47, 'Parasect', 'Bug/Grass')
+Insert into Pokedex Values('Paras', 'Bug', 'Grass')
+Insert into Pokedex Values('Parasect', 'Bug', 'Grass')
 ---------------------------------------------------------------------
-Insert into Pokedex Values(48, 'Venonat', 'Bug/Poison')
-Insert into Pokedex Values(49, 'Venomoth', 'Bug/Poison')
+Insert into Pokedex Values('Venonat', 'Bug', 'Poison')
+Insert into Pokedex Values('Venomoth', 'Bug', 'Poison')
+---------------------------------------------------------------------
+Insert into Pokedex Values('Diglett', 'Ground', 'null')
+Insert into Pokedex Values('Dugtrio', 'Ground', 'null')
 ---------------------------------------------
 				--Team Inserts--
 
---(Trainer ID, Pokemon 1-6)
-Insert into Team Values(0, 'Pikachu', 'Butterfree', 'Pidgeotto', 'Bulbasaur', 'Charizard', 'Squirtle')
+--(Pokemon 1-6)
+Insert into Team Values('Pikachu', 'Butterfree', 'Pidgeotto', 'Bulbasaur', 'Charizard', 'Squirtle')
+Insert into Team Values('Pikachu', 'Pikachu', 'Pikachu', 'Pikachu', 'Pikachu', 'Pikachu')
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 				--Table Selects--
 
 --Select
-Select * From Team
-Select * From Pokedex
+select * From Team
+select * From Pokedex
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+--truncate table Pokedex
 --truncate table Team
