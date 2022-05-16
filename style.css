@@ -1,0 +1,23 @@
+body 
+{
+	margin: 30px;
+	background-color: lightGrey;
+}
+
+img 
+{
+	width: "15";
+	height: "5"
+}
+
+select
+{
+font-size: 150%;
+position:relative;top:-100px
+}
+
+button
+{
+	font-size: 150%;
+}
+
