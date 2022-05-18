@@ -44,11 +44,31 @@ async function getPokemon()
         // make sure that any items are correctly URL encoded in the connection string
         await sql.connect(CONNECTION)
 
-        var pokemonNames = await sql.query("Select pokedexName from Pokedex")
+        var pokemonNames = await sql.query("Select pokedexName, pokemonType1, pokemonType2 from Pokedex")
         console.dir("Selected pokemon names in dao")
 
         //console.log(pokemonNames)
         return pokemonNames;
+    }
+        
+    catch (err)       
+    {
+        console.log(err);
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+async function getTeams()
+{
+    try
+    {
+        // make sure that any items are correctly URL encoded in the connection string
+        await sql.connect(CONNECTION)
+
+        var pokemonTeams = await sql.query("Select teamName from Team")
+        console.dir("Selected pokemon names in dao")
+
+        //console.log(pokemonteams)
+        return pokemonTeams;
     }
         
     catch (err)       
@@ -62,4 +82,5 @@ module.exports =
 {
     makeTeam,
     getPokemon,
+    getTeams,
 }
