@@ -37,7 +37,7 @@
 	</Style>
 	</head>
 
-	<body onload="dropdown()">
+	<body onload="changeIcon()">
 		<body style="background-image: url('https://images.unsplash.com/photo-1585314062604-1a357de8b000?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80'); background-size: cover">
 
 		<h1 style="color:rgb(0, 11, 46);position:relative;top:-100px"><b><u><center>Pokemon</center></u></b></h1>
@@ -45,18 +45,18 @@
         <h3 style="position:relative;top:-100px">Pick a pokemon to add to your team</h3>
 		<h3></h3>
 
-        <select name="pokemon" id="pokemon1">	</select> <div id = "pokemon1Type" style="position:relative; right:-170px; top:-134px"></div>
+        <select name="pokemon" id="pokemon1">	</select> <div id = "pokemon1Type" class="icon grass" style="position:relative; right:-170px; top:-134px"></div>
 		
-		<select name="pokemon" id="pokemon2">	</select> <div id = "pokemon2Type" style="position:relative; right:-170px; top:-134px"></div>
+		<select name="pokemon" id="pokemon2">	</select> <div id = "pokemon2Type" class="icon fire" style="position:relative; right:-170px; top:-134px"></div>
 	
-		<select name="pokemon" id="pokemon3">	</select> <div id = "pokemon3Type" style="position:relative; right:-170px; top:-134px"></div>
+		<select name="pokemon" id="pokemon3">	</select> <div id = "pokemon3Type" class="icon water" style="position:relative; right:-170px; top:-134px"></div>
 
-		<select name="pokemon" id="pokemon4">	</select> <div id = "pokemon4Type" style="position:relative; right:-170px; top:-134px"></div>
+		<select name="pokemon" id="pokemon4">	</select> <div id = "pokemon4Type" class="icon flying" style="position:relative; right:-170px; top:-134px"></div>
 
-		<select name="pokemon" id="pokemon5">	</select> <div id = "pokemon5Type" style="position:relative; right:-170px; top:-134px"></div>
+		<select name="pokemon" id="pokemon5">	</select> <div id = "pokemon5Type" class="icon poison" style="position:relative; right:-170px; top:-134px"></div>
 
-		<select name="pokemon" id="pokemon6">	</select> <div id = "pokemon6Type" style="position:relative; right:-170px; top:-134px"></div>
-
+		<select name="pokemon" id="pokemon6">	</select> <div id = "pokemon6Type" class="icon ground" style="position:relative; right:-170px; top:-134px"></div>
+		
 		<button type='button' style="position:relative; right:-300px; top:-150px" onclick="addPokemon()">Add</button>
 
 	
@@ -64,6 +64,16 @@
 	
 	
 	<script>	
+	//constants 
+	const grassTypes = ["Bulbasaur", "Ivysaur", "Venusaur", "oddish", "Gloom", "Vileplume"]
+	const fireTypes = ["Charmander", "Charmeleon", "Charizard", "Vulpix", "Ninetales"]
+	const waterTypes = ["Squirtle", "Wartortle", "Blastoise"]
+	const bugTypes = ["Caterpie", "Metapod", "Butterfree", "Weedle", "Kakuna", "Beedrill", "Paras", "Parasect", "Venonat", "Venomoth"]
+	const flyingTypes = ["Pidgey", "Pidgeotto", "Pidgeot"]
+	const normalTypes = ["Rattata", "Raticate", "Spearow", "Fearow", "Jigglypuff", "Wigglytuff"]
+	const poisonTypes = ["Ekans", "Arbok", "Nidoran", "Nidorina", "Nidoqueen", "Nidoran", "Nidorino", "Nidoking"]
+	const electricTypes = ["Pikachu", "Raichu"]
+	const groundTypes = ["Sandshrew", "Sandslash", "Diglett", "Dugtrio"]
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 	function makeArmy()
 	{
@@ -166,6 +176,39 @@ function addPokemon()
 
 		//document.getElementById('Input').value = ''
 	}
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+function changeIcon(){
+		var grassType = "images/grass.svg";
+		var fireType = "images/fire.svg";
+		var waterType = "images/water.svg";
+		var flyingType = "images/flying.svg";
+		var poisonType = "images/poison.svg";
+		var groundType = "images/ground.svg";
+		var darkType = "images/dark.svg";
+		var bugType = "images/bug.svg";
+		var dragonType = "images/dragon.svg";
+		var electricType = "images/electric.svg";
+		var fairyType = "images/fairy.svg";
+		var fightingType = "images/fighting.svg";
+		var ghostType = "images/ghost.svg";
+		var iceType = "images/ice.svg";
+		var normalType = "images/normal.svg";
+		var psychicType = "images/psychic.svg"
+		var rockType = "images/rock.svg"
+		var steelType = "images/steel.svg"
+
+		document.getElementById("pokemon1Type").innerHTML = "<img src = '" + grassType + "''>";
+		document.getElementById("pokemon2Type").innerHTML = "<img src = '" + fireType + "''>";
+		document.getElementById("pokemon3Type").innerHTML = "<img src = '" + waterType + "''>";
+		document.getElementById("pokemon4Type").innerHTML = "<img src = '" + flyingType + "''>";
+		document.getElementById("pokemon5Type").innerHTML = "<img src = '" + poisonType + "''>";
+		document.getElementById("pokemon6Type").innerHTML = "<img src = '" + groundType + "''>";
+
+		for(i=0; i < grassTypes; i++){
+			if 
+		}
+} 
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 		event.preventDefualt();
 			
