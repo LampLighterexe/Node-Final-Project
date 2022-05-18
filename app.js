@@ -14,58 +14,13 @@ const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
 const upload = multer({ dest: './public/data/uploads/' })
 
 const app = express()
-///////////////////////////////////////////////////////////
-app.get('/gimme',(req, res) =>
-  res.status(200).sendFile('file:///' + __dirname + '//public//')
-  )
-///////////////////////////////////////////////////////////
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname + '/public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-///////////////////////////////////////////////////////////
-app.get('/Insert',async (req,res) =>
-{
-  var object = req.query.object;
-  var comment = req.query.comment;
-  var numStars = req.query.numStars;
-
-  console.log(object + "," + comment + "," + " " + numStars)
-  
-  await dao.Insert(object, numStars, comment)
-
-  res.sendStatus(200)
-})
-///////////////////////////////// 
-function random(min, max)
-{
-  return Math.floor(Math.random()  * max) + min;
-}
-/////////////////////////////////
-
-///////////////////////////////////////////////////////////
-app.get('/addMeme',async (req,res) =>
-{
-  //var id = req.query.id;
-  
-  await dao.saveMeme(req.query.memeURL)
-
-  //console.log(req.query.memeURL)
-
-  res.status(200).send()
-});
-///////////////////////////////////////////////////////////
-//Memes page function for random memes
-app.get('/gimmeMeme',async (req, res) =>
-  {
-    console.log("got to app.js")
-
-    var url = await dao.getMeme()
-    res.status(200).send(url)
-  })
-///////////////////////////////////////////////////////////
-//Get for army names
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Get for pokemon names
 app.get('/getPokemonNames',async (req, res) =>
   {
     var pokemonNames = await dao.getPokemon()
@@ -76,34 +31,15 @@ app.get('/getPokemonNames',async (req, res) =>
     console.log('pokemon names app.js')
   })
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Get needed info for fighting armies
-app.get('/getArmyPower',async (req, res) =>
+//Get for pokemon teams
+app.get('/getPokemonTeams',async (req, res) =>
   {
-    var armyName = req.query.armyName;
-    console.log(armyName)
+    var pokemonTeams = await dao.getTeams()
 
-    var totalPower = await dao.getArmyPower(armyName)
-
-    console.log(totalPower )
-
-    res.status(200).send(totalPower.toString())
+    //console.log(pokemonNames)
+    res.status(200).send(pokemonTeams)
     
-  })
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Save army battle
-app.get('/saveBattle',async (req, res) =>
-  {
-    var battleName = req.query.battleName;
-    var army1 = req.query.army1;
-    var army2 = req.query.army2;
-    var result = req.query.result;
-    console.log("App.js for save battle")
-    console.log(battleName)
-		console.log(army1)
-		console.log(army2)
-		console.log(result)
-
-    await dao.saveBattle(battleName, army1, army2, result) 
+    console.log('pokemon Teams app.js')
   })
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Pokemon Team Add
