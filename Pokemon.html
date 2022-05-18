@@ -67,15 +67,17 @@
 	
 	<script>	
 	//constants 
-	const grassTypes = ["Bulbasaur", "Ivysaur", "Venusaur", "oddish", "Gloom", "Vileplume"]
-	const fireTypes = ["Charmander", "Charmeleon", "Charizard", "Vulpix", "Ninetales"]
-	const waterTypes = ["Squirtle", "Wartortle", "Blastoise"]
-	const bugTypes = ["Caterpie", "Metapod", "Butterfree", "Weedle", "Kakuna", "Beedrill", "Paras", "Parasect", "Venonat", "Venomoth"]
-	const flyingTypes = ["Pidgey", "Pidgeotto", "Pidgeot"]
-	const normalTypes = ["Rattata", "Raticate", "Spearow", "Fearow", "Jigglypuff", "Wigglytuff"]
-	const poisonTypes = ["Ekans", "Arbok", "Nidoran", "Nidorina", "Nidoqueen", "Nidoran", "Nidorino", "Nidoking", "zoobat"]
-	const electricTypes = ["Pikachu", "Raichu"]
-	const groundTypes = ["Sandshrew", "Sandslash", "Diglett", "Dugtrio"]
+	grassTypes = []
+	fireTypes = []
+	waterTypes = []
+	bugTypes = []
+	flyingTypes = []
+	normalTypes = []
+	poisonTypes = []
+	electricTypes = []
+	groundTypes = []
+
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 	function makeArmy()
 	{
@@ -119,6 +121,28 @@ function dropdown()
 						//console.log('loop: ' + r)
 						//table += "<td>" + data.recordset[r].numStars + "</td>";
 						option += "<option value = '" + data.recordset[r].pokedexName + "''>" + data.recordset[r].pokedexName + "</option>"
+					}
+
+					for(i in data.recordset){
+						if(data.recordset[r].pokemonType1 == "Grass"){
+							grassTypes.push(data.recordset[r].pokedexName)
+						}else if(data.recordset[r].pokemonType1 == "Fire"){
+							fireTypes.push(data.recordset[r].pokedexName)
+						}else if(data.recordset[r].pokemonType1 == "Water"){
+							waterTypes.push(data.recordset[r].pokedexName)
+						}else if(data.recordset[r].pokemonType1 == "Bug"){
+							bugTypes.push(data.recordset[r].pokedexName)
+						}else if(data.recordset[r].pokemonType1 == "Flying"){
+							flyingTypes.push(data.recordset[r].pokedexName)
+						}else if(data.recordset[r].pokemonType1 == "Normal"){
+							normalTypes.push(data.recordset[r].pokedexName)
+						}else if(data.recordset[r].pokemonType1 == "Poison"){
+							poisonTypes.push(data.recordset[r].pokedexName)
+						}else if(data.recordset[r].pokemonType1 == "Electric"){
+							electricTypes.push(data.recordset[r].pokedexName)
+						}else if(data.recordset[r].pokemonType1 == "Ground"){
+							groundTypes.push(data.recordset[r].pokedexName)
+						}
 					}
 
 					document.getElementById("pokemon1").innerHTML = option;
