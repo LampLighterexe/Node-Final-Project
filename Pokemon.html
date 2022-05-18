@@ -37,7 +37,7 @@
 	</Style>
 	</head>
 
-	<body onload="changeIcon()">
+	<body onload="dropdown()">
 		<body style="background-image: url('https://images.unsplash.com/photo-1585314062604-1a357de8b000?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80'); background-size: cover">
 
 		<h1 style="color:rgb(0, 11, 46);position:relative;top:-100px"><b><u><center>Pokemon</center></u></b></h1>
@@ -206,11 +206,22 @@ function changeIcon(){
 
 
 		console.log(document.getElementById("pokemon1Type").classList)
-		//document.getElementById("pokemon1Type").classList.toggle('rock')
+		// document.getElementById("pokemon1Type").classList.replace('grass', 'fire')
+
+		var color1 = document.getElementById("pokemon1Type").classList[1];
+		var color2 = document.getElementById("pokemon2Type").classList[1];
+		var color3 = document.getElementById("pokemon3Type").classList[1];
+		var color4 = document.getElementById("pokemon4Type").classList[1];
+		var color5 = document.getElementById("pokemon5Type").classList[1];
+		var color6 = document.getElementById("pokemon6Type").classList[1];
+		
+		
+		
 		
 		// for(i=0; i < grassTypes; i++){
 		// 	if (document.getElementById("pokemon1").value == grassTypes[i]){
 		// 		document.getElementById("pokemon1Type").innerHTML = "<img src = '" + grassType + "''>";
+		// 		document.getElementById("pokemon1Type").classList[1].toggle('grass')
 		// 	}; if (document.getElementById("pokemon2").value == grassTypes[i]){
 		// 		document.getElementById("pokemon2Type").innerHTML = "<img src = '" + grassType + "''>";
 		// 	}; if (document.getElementById("pokemon3").value == grassTypes[i]){
