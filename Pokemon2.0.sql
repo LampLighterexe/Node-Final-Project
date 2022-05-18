@@ -11,6 +11,7 @@ use corbyn;
 Create table Team
 (
 trainerID INT Identity(1,1),
+teamName varchar(40),
 pokemon#1 varchar(20),
 pokemon#2 varchar(20),
 pokemon#3 varchar(20),
@@ -105,9 +106,8 @@ Insert into Pokedex Values('Dugtrio', 'Ground', 'null')
 ---------------------------------------------
 				--Team Inserts--
 
---(Pokemon 1-6)
-Insert into Team Values('Pikachu', 'Butterfree', 'Pidgeotto', 'Bulbasaur', 'Charizard', 'Squirtle')
-Insert into Team Values('Pikachu', 'Pikachu', 'Pikachu', 'Pikachu', 'Pikachu', 'Pikachu')
+--(Team Name, Pokemon 1-6)
+Insert into Team Values('Team Pikachu', 'Pikachu', 'Pikachu', 'Pikachu', 'Pikachu', 'Pikachu', 'Pikachu')
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 				--Table Selects--
 
