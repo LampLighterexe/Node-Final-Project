@@ -37,7 +37,7 @@
 	</Style>
 	</head>
 
-	<body onload="changeIcon()">
+	<body onload="dropdown()">
 		<body style="background-image: url('https://images.unsplash.com/photo-1585314062604-1a357de8b000?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80'); background-size: cover">
 
 		<h1 style="color:rgb(0, 11, 46);position:relative;top:-100px"><b><u><center>Pokemon</center></u></b></h1>
@@ -57,6 +57,8 @@
 
 		<select name="pokemon" id="pokemon6" onchange="changeIcon()">	</select> <div id = "pokemon6Type" class="icon ground" style="position:relative; right:-170px; top:-134px"></div>
 		
+		<h2 style="position:relative; top:-120px">Team Name: </h2> <input type = "text" id = "teamName" style="position:relative; right:-150px; top:-170px"> </input>  
+
 		<button type='button' style="position:relative; right:-300px; top:-150px" onclick="addPokemon()">Add</button>
 
 	
@@ -71,7 +73,7 @@
 	const bugTypes = ["Caterpie", "Metapod", "Butterfree", "Weedle", "Kakuna", "Beedrill", "Paras", "Parasect", "Venonat", "Venomoth"]
 	const flyingTypes = ["Pidgey", "Pidgeotto", "Pidgeot"]
 	const normalTypes = ["Rattata", "Raticate", "Spearow", "Fearow", "Jigglypuff", "Wigglytuff"]
-	const poisonTypes = ["Ekans", "Arbok", "Nidoran", "Nidorina", "Nidoqueen", "Nidoran", "Nidorino", "Nidoking"]
+	const poisonTypes = ["Ekans", "Arbok", "Nidoran", "Nidorina", "Nidoqueen", "Nidoran", "Nidorino", "Nidoking", "zoobat"]
 	const electricTypes = ["Pikachu", "Raichu"]
 	const groundTypes = ["Sandshrew", "Sandslash", "Diglett", "Dugtrio"]
 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -149,12 +151,13 @@ function addPokemon()
 		var addPokemon4 = document.getElementById("pokemon4").value;
 		var addPokemon5 = document.getElementById("pokemon5").value;
 		var addPokemon6 = document.getElementById("pokemon6").value;
-		console.log()
+		var teamName = document.getElementById("teamName").value;
+		console.log("Team Name: " + teamName)
 
 		var xhr = new XMLHttpRequest();
 
 		xhr.open("GET", "http://localhost:3000/makeTeam?pokemon1=" + addPokemon1 + "&pokemon2=" + addPokemon2 + "&pokemon3=" + addPokemon3 + "&pokemon4=" + addPokemon4 + "&pokemon5="
-		 + addPokemon5 + "&pokemon6=" + addPokemon6, true)
+		 + addPokemon5 + "&pokemon6=" + addPokemon6 + "&teamName=" + teamName , true)
 
 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
 		xhr.onreadystatechange = () =>{
@@ -203,13 +206,14 @@ function changeIcon(){
 		var color5 = document.getElementById("pokemon5Type").classList[1];
 		var color6 = document.getElementById("pokemon6Type").classList[1];
 
-		
+		//console.log("colors defined")
 		
 		// document.getElementById("pokemon1Type").classList.replace(color1, 'fire')
 		
 		
 		
-		for(i=0; i < grassTypes.length; i++){
+		for(i=0; i < grassTypes.length; i++)
+		{
 			if (document.getElementById("pokemon1").value == grassTypes[i]){
 				document.getElementById("pokemon1Type").innerHTML = "<img src = '" + grassType + "''>";
 				document.getElementById("pokemon1Type").classList.replace(color1, "grass")
@@ -296,27 +300,26 @@ function changeIcon(){
 				document.getElementById("pokemon6Type").classList.replace(color6, "bug")
 			};
 		};
-
 		for(i=0; i < flyingTypes.length; i++){
 			if (document.getElementById("pokemon1").value == flyingTypes[i]){
-				document.getElementById("pokemon1Type").innerHTML = "<img src = '" + flyingType + "''>";
-				document.getElementById("pokemon1Type").classList.replace(color1, "flying")
-			}; if (document.getElementById("pokemon2").value == flyingTypes[i]){
-				document.getElementById("pokemon2Type").innerHTML = "<img src = '" + flyingType + "''>";
-				document.getElementById("pokemon2Type").classList.replace(color2, "flying")
-			}; if (document.getElementById("pokemon3").value == flyingTypes[i]){
-				document.getElementById("pokemon3Type").innerHTML = "<img src = '" + flyingType + "''>";
-				document.getElementById("pokemon3Type").classList.replace(color3, "flying")
-			}; if (document.getElementById("pokemon4").value == flyingTypes[i]){
-				document.getElementById("pokemon4Type").innerHTML = "<img src = '" + flyingType + "''>";
-				document.getElementById("pokemon4Type").classList.replace(color4, "flying")
-			}; if (document.getElementById("pokemon5").value == flyingTypes[i]){
-				document.getElementById("pokemon5Type").innerHTML = "<img src = '" + flyingType + "''>";
-				document.getElementById("pokemon5Type").classList.replace(color5, "flying")
-			}; if (document.getElementById("pokemon6").value == flyingTypes[i]){
-				document.getElementById("pokemon6Type").innerHTML = "<img src = '" + flyingType + "''>";
-				document.getElementById("pokemon6Type").classList.replace(color6, "flying")
-			};
+					document.getElementById("pokemon1Type").innerHTML = "<img src = '" + flyingType + "''>";
+					document.getElementById("pokemon1Type").classList.replace(color1, "flying")
+				}; if (document.getElementById("pokemon2").value == flyingTypes[i]){
+					document.getElementById("pokemon2Type").innerHTML = "<img src = '" + flyingType + "''>";
+					document.getElementById("pokemon2Type").classList.replace(color2, "flying")
+				}; if (document.getElementById("pokemon3").value == flyingTypes[i]){
+					document.getElementById("pokemon3Type").innerHTML = "<img src = '" + flyingType + "''>";
+					document.getElementById("pokemon3Type").classList.replace(color3, "flying")
+				}; if (document.getElementById("pokemon4").value == flyingTypes[i]){
+					document.getElementById("pokemon4Type").innerHTML = "<img src = '" + flyingType + "''>";
+					document.getElementById("pokemon4Type").classList.replace(color4, "flying")
+				}; if (document.getElementById("pokemon5").value == flyingTypes[i]){
+					document.getElementById("pokemon5Type").innerHTML = "<img src = '" + flyingType + "''>";
+					document.getElementById("pokemon5Type").classList.replace(color5, "flying")
+				}; if (document.getElementById("pokemon6").value == flyingTypes[i]){
+					document.getElementById("pokemon6Type").innerHTML = "<img src = '" + flyingType + "''>";
+					document.getElementById("pokemon6Type").classList.replace(color6, "flying")
+				};
 		};
 
 		for(i=0; i < normalTypes.length; i++){
@@ -408,8 +411,6 @@ function changeIcon(){
 				document.getElementById("pokemon6Type").classList.replace(color6, "ground")
 			};
 		};
-
-
 	}
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 		event.preventDefualt();
@@ -418,5 +419,3 @@ function changeIcon(){
 
 	</body>
 </html>
-
-
