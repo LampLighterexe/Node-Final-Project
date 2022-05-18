@@ -1,197 +1,140 @@
-//dao.js
+//const express = require('express')
+//const app = express()
+const port = 3000
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const path = require('path');
+const { domainToASCII } = require('url');
+const dao = require('./dao.js')
 const sql = require('mssql')
-const CONNECTION = 'Server=localhost,1433;Database=corbyn;User Id=Test;Password=Test;Encrypt=false'
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/*
-async function Insert(object, stars, comment)
+
+const express = require('express')
+const multer  = require('multer');
+const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
+const upload = multer({ dest: './public/data/uploads/' })
+
+const app = express()
+///////////////////////////////////////////////////////////
+app.get('/gimme',(req, res) =>
+  res.status(200).sendFile('file:///' + __dirname + '//public//')
+  )
+///////////////////////////////////////////////////////////
+app.use(cors());
+app.use(express.json());
+app.use(express.static(path.resolve(__dirname + '/public')));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+///////////////////////////////////////////////////////////
+app.get('/Insert',async (req,res) =>
 {
-    try {
-        // make sure that any items are correctly URL encoded in the connection string
-        await sql.connect('Server=localhost,1433;Database=corbyn;User Id=Test;Password=Test;Encrypt=false')
-        //await sql.query("Insert INTO Object VALUES(4, 'Corbyn')")
-        
-        await sql.query("Insert INTO Rating VALUES(" + stars +  ",'" + comment + "','" + object + "')")
+  var object = req.query.object;
+  var comment = req.query.comment;
+  var numStars = req.query.numStars;
 
-        console.dir(object + "," + stars + "," + comment)
+  console.log(object + "," + comment + "," + " " + numStars)
+  
+  await dao.Insert(object, numStars, comment)
 
-    } catch (err) {
-        console.log(err);
-    }
-}
-*/
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-async function saveFile(fileName)
-{
-    try
-    {
-        // make sure that any items are correctly URL encoded in the connection string
-        await sql.connect(CONNECTION)
-
-        await sql.query("Insert INTO Files VALUES('" + fileName + "')")
-        console.log('save Meme DAO')
-        console.dir(fileName)
-    } 
-        
-    catch (err)       
-    {
-        console.log(err);
-    }
-}
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-async function makeTeam(pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6)
-{
-    try
-    {
-        // make sure that any items are correctly URL encoded in the connection string
-        await sql.connect(CONNECTION)
-
-        await sql.query("Insert INTO Team VALUES(' " + pokemon1 + " ',' " + pokemon2 + " ' , '" + pokemon3 + "', '" + pokemon4 + "', '" + pokemon5 + "', '" + pokemon6 + "' )")
-        console.dir("Pokemon Team inserted inserted")
-    }
-        
-    catch (err)       
-    {
-        console.log(err);
-    }
-}
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-async function getPokemon()
-{
-    try
-    {
-        // make sure that any items are correctly URL encoded in the connection string
-        await sql.connect(CONNECTION)
-
-        var pokemonNames = await sql.query("Select pokedexName from Pokedex")
-        console.dir("Selected pokemon names in dao")
-
-        //console.log(pokemonNames)
-        return pokemonNames;
-    }
-        
-    catch (err)       
-    {
-        console.log(err);
-    }
-}
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  res.sendStatus(200)
+})
+///////////////////////////////// 
 function random(min, max)
 {
-	return Math.floor(Math.random()  * max) + min;
+  return Math.floor(Math.random()  * max) + min;
 }
+/////////////////////////////////
 
-async function getArmyPower(armyName)
+///////////////////////////////////////////////////////////
+app.get('/addMeme',async (req,res) =>
 {
-    try
-    {
-        // make sure that any items are correctly URL encoded in the connection string
-        await sql.connect(CONNECTION)
+  //var id = req.query.id;
+  
+  await dao.saveMeme(req.query.memeURL)
 
-        var infantryNum = await sql.query("Select Infantry From Army Where armyName =  '" + armyName + "'")
-        var cavalryNum = await sql.query("Select Cavalry From Army Where armyName =  '" + armyName + "'")
-        var AirForce = await sql.query("Select AirForce From Army Where armyName =  '" + armyName + "'")
-        
-        var Infantry = infantryNum.recordset[0].Infantry
-        var Cavarly = cavalryNum.recordset[0].Cavalry
+  //console.log(req.query.memeURL)
 
-        console.log("Selected Power Information")
-        console.log("Infantry: " + Infantry)
-        console.log("Cavarly: " + Cavarly)
-        console.log("Airforce: " + AirForce.recordset[0].AirForce)
+  res.status(200).send()
+});
+///////////////////////////////////////////////////////////
+//Memes page function for random memes
+app.get('/gimmeMeme',async (req, res) =>
+  {
+    console.log("got to app.js")
 
-        
+    var url = await dao.getMeme()
+    res.status(200).send(url)
+  })
+///////////////////////////////////////////////////////////
+//Get for army names
+app.get('/getPokemonNames',async (req, res) =>
+  {
+    var pokemonNames = await dao.getPokemon()
 
-        var totalPower = random(0, 10) * Number(Infantry) + random(0, 10) * 3.0 * Number(Cavarly);
-
-		if (AirForce == true)
-		{
-			totalPower += random(0, 10) * 9000.0;
-		}	
-
-        console.log("Total power: " + totalPower)
-        return totalPower
-    }
-        
-    catch (err)       
-    {
-        console.log(err);
-    }
-}
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-async function saveBattle(battleName, army1, army2, result)
-{
-    try
-    {
-        // make sure that any items are correctly URL encoded in the connection string
-        await sql.connect(CONNECTION)
-
-        await sql.query("Insert INTO Battles VALUES(' " + battleName + " ',' " + army1 + " ' , '" + army2 + "', '" + result + "' )")
-        console.dir("Save battle into sql")
-    }
-        
-    catch (err)       
-    {
-        console.log(err);
-    }
-}
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-async function saveMeme(memeURL)
-{
-    try
-    {
-        // make sure that any items are correctly URL encoded in the connection string
-        await sql.connect(CONNECTION)
-
-        await sql.query("Insert INTO MemeURLs VALUES('" + memeURL + "')")
-        console.dir(memeURL)
-    } 
-        
-    catch (err)       
-    {
-        console.log(err);
-    }
-}
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-async function getMeme()
-{
-    console.log("got to dao")
-    try
-    {
-        await sql.connect(CONNECTION)
-        //var memeID = await sql.query("Select memeID From MemeURLs")
-        // var memeURL = (await sql.query("Select memeURL From MemeURLs")).recordset[0].memeURL
-        //console.dir(memeID)
-        //console.dir(memeURL)
-
-        var maxID = await sql.query("Select MAX(memeID) as maxIDSQL From MemeURLs")
-
-        console.log("max ID: " + maxID.recordset[0].maxIDSQL)
-
-        var randomID = random(0,parseInt(maxID.recordset[0].maxIDSQL));
-        console.log("Random ID: " + randomID)
-
-        var selectedMeme = await sql.query("Select memeURL From MemeURLs Where memeID ='" +  randomID + "'")
+    //console.log(pokemonNames)
+    res.status(200).send(pokemonNames)
     
-        //res.status(200).send('<img src=" '+ selectedMeme +' " alt="Meme">')
-        return selectedMeme;
-    } 
-        
-    catch (err)       
-    {
-        console.log(err);
-    }
-}
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    console.log('pokemon names app.js')
+  })
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Get needed info for fighting armies
+app.get('/getArmyPower',async (req, res) =>
+  {
+    var armyName = req.query.armyName;
+    console.log(armyName)
 
-module.exports = 
+    var totalPower = await dao.getArmyPower(armyName)
+
+    console.log(totalPower )
+
+    res.status(200).send(totalPower.toString())
+    
+  })
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Save army battle
+app.get('/saveBattle',async (req, res) =>
+  {
+    var battleName = req.query.battleName;
+    var army1 = req.query.army1;
+    var army2 = req.query.army2;
+    var result = req.query.result;
+    console.log("App.js for save battle")
+    console.log(battleName)
+		console.log(army1)
+		console.log(army2)
+		console.log(result)
+
+    await dao.saveBattle(battleName, army1, army2, result) 
+  })
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Pokemon Team Add
+app.get('/makeTeam',async (req, res) =>
+  {
+    //await sql.connect('Server=localhost,1433;Database=corbyn;User Id=Test;Password=Test;Encrypt=false')
+
+    var pokemon1 = req.query.pokemon1;
+    var pokemon2 = req.query.pokemon2;
+    var pokemon3 = req.query.pokemon3;
+    var pokemon4 = req.query.pokemon4;
+    var pokemon5 = req.query.pokemon5;
+    var pokemon6 = req.query.pokemon6;
+    var teamName = req.query.teamName;
+
+    console.log("make team App.js")
+    console.log(teamName)
+    console.log(pokemon1)
+		console.log(pokemon2)
+    console.log(pokemon3)
+    console.log(pokemon4)
+    console.log(pokemon5)
+    console.log(pokemon6)
+
+    await dao.makeTeam(pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6, teamName)
+  })
+app.listen(port, () => 
 {
-    saveFile,
-    makeTeam,
-    getArmyPower,
-    saveBattle,
-    getMeme,
-    saveMeme,
-    getPokemon,
-}
+  console.log(`Server listening at http://localhost:${port}`)
+
+
+  
+
+})
