@@ -117,8 +117,10 @@ app.get('/makeTeam',async (req, res) =>
     var pokemon4 = req.query.pokemon4;
     var pokemon5 = req.query.pokemon5;
     var pokemon6 = req.query.pokemon6;
+    var teamName = req.query.teamName;
 
     console.log("make team App.js")
+    console.log(teamName)
     console.log(pokemon1)
 		console.log(pokemon2)
     console.log(pokemon3)
@@ -126,7 +128,7 @@ app.get('/makeTeam',async (req, res) =>
     console.log(pokemon5)
     console.log(pokemon6)
 
-    await dao.makeTeam(pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6)
+    await dao.makeTeam(pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6, teamName)
   })
 app.listen(port, () => 
 {
