@@ -77,6 +77,15 @@
 	poisonTypes = []
 	electricTypes = []
 	groundTypes = []
+	darkTypes = []
+	dragonTypes = []
+	fairyTypes = []
+	fightingTypes = []
+	ghostTypes = []
+	iceTypes = []
+	psychicTypes = []
+	rockTypes = []
+	steelTypes = []
 	allPokemon = []
 	allTypes2 = []
 
@@ -159,6 +168,60 @@ function dropdown()
 						else if(data.recordset[i].pokemonType1 == "Ground")
 						{
 							groundTypes.push(data.recordset[i].pokedexName)
+							allPokemon.push(data.readyState[i].pokedexName)
+							allTypes2.push(data.recordset[i].pokemonType2)
+						}
+						else if(data.recordset[i].pokemonType1 == "Dark")
+						{
+							darkTypes.push(data.recordset[i].pokedexName)
+							allPokemon.push(data.readyState[i].pokedexName)
+							allTypes2.push(data.recordset[i].pokemonType2)
+						}
+						else if(data.recordset[i].pokemonType1 == "Dragon")
+						{
+							dragonTypes.push(data.recordset[i].pokedexName)
+							allPokemon.push(data.readyState[i].pokedexName)
+							allTypes2.push(data.recordset[i].pokemonType2)
+						}
+						else if(data.recordset[i].pokemonType1 == "fairy")
+						{
+							fairyTypes.push(data.recordset[i].pokedexName)
+							allPokemon.push(data.readyState[i].pokedexName)
+							allTypes2.push(data.recordset[i].pokemonType2)
+						}
+						else if(data.recordset[i].pokemonType1 == "Fighting")
+						{
+							fightingTypes.push(data.recordset[i].pokedexName)
+							allPokemon.push(data.readyState[i].pokedexName)
+							allTypes2.push(data.recordset[i].pokemonType2)
+						}
+						else if(data.recordset[i].pokemonType1 == "Ghost")
+						{
+							ghostTypes.push(data.recordset[i].pokedexName)
+							allPokemon.push(data.readyState[i].pokedexName)
+							allTypes2.push(data.recordset[i].pokemonType2)
+						}
+						else if(data.recordset[i].pokemonType1 == "Ice")
+						{
+							iceTypes.push(data.recordset[i].pokedexName)
+							allPokemon.push(data.readyState[i].pokedexName)
+							allTypes2.push(data.recordset[i].pokemonType2)
+						}
+						else if(data.recordset[i].pokemonType1 == "Psychic")
+						{
+							psychicTypes.push(data.recordset[i].pokedexName)
+							allPokemon.push(data.readyState[i].pokedexName)
+							allTypes2.push(data.recordset[i].pokemonType2)
+						}
+						else if(data.recordset[i].pokemonType1 == "Rock")
+						{
+							rockTypes.push(data.recordset[i].pokedexName)
+							allPokemon.push(data.readyState[i].pokedexName)
+							allTypes2.push(data.recordset[i].pokemonType2)
+						}
+						else if(data.recordset[i].pokemonType1 == "Steel")
+						{
+							steelTypes.push(data.recordset[i].pokedexName)
 							allPokemon.push(data.readyState[i].pokedexName)
 							allTypes2.push(data.recordset[i].pokemonType2)
 						}
@@ -513,6 +576,190 @@ function changeIcon(){
 			};
 		};
 /////////////////////////////////////////////////////////////////////////////////////////////////////
+//dark types	
+for(i=0; i < darkTypes.length; i++){
+			if (document.getElementById("pokemon1").value == darkTypes[i]){
+				document.getElementById("pokemon1Type").innerHTML = "<img src = '" + darkType + "''>";
+				document.getElementById("pokemon1Type").classList.replace(color1, "dark")
+			}; if (document.getElementById("pokemon2").value == darkTypes[i]){
+				document.getElementById("pokemon2Type").innerHTML = "<img src = '" + darkType + "''>";
+				document.getElementById("pokemon2Type").classList.replace(color2, "dark")
+			}; if (document.getElementById("pokemon3").value == darkTypes[i]){
+				document.getElementById("pokemon3Type").innerHTML = "<img src = '" + darkType + "''>";
+				document.getElementById("pokemon3Type").classList.replace(color3, "dark")
+			}; if (document.getElementById("pokemon4").value == darkTypes[i]){
+				document.getElementById("pokemon4Type").innerHTML = "<img src = '" + darkType + "''>";
+				document.getElementById("pokemon4Type").classList.replace(color4, "dark")
+			}; if (document.getElementById("pokemon5").value == darkTypes[i]){
+				document.getElementById("pokemon5Type").innerHTML = "<img src = '" + darkType + "''>";
+				document.getElementById("pokemon5Type").classList.replace(color5, "dark")
+			}; if (document.getElementById("pokemon6").value == darkTypes[i]){
+				document.getElementById("pokemon6Type").innerHTML = "<img src = '" + darkType + "''>";
+				document.getElementById("pokemon6Type").classList.replace(color6, "dark")
+			};
+		};
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//dragon types	
+for(i=0; i < dragonTypes.length; i++){
+			if (document.getElementById("pokemon1").value == dragonTypes[i]){
+				document.getElementById("pokemon1Type").innerHTML = "<img src = '" + dragonType + "''>";
+				document.getElementById("pokemon1Type").classList.replace(color1, "dragon")
+			}; if (document.getElementById("pokemon2").value == dragonTypes[i]){
+				document.getElementById("pokemon2Type").innerHTML = "<img src = '" + dragonType + "''>";
+				document.getElementById("pokemon2Type").classList.replace(color2, "dragon")
+			}; if (document.getElementById("pokemon3").value == dragonTypes[i]){
+				document.getElementById("pokemon3Type").innerHTML = "<img src = '" + dragonType + "''>";
+				document.getElementById("pokemon3Type").classList.replace(color3, "dragon")
+			}; if (document.getElementById("pokemon4").value == dragonTypes[i]){
+				document.getElementById("pokemon4Type").innerHTML = "<img src = '" + dragonType + "''>";
+				document.getElementById("pokemon4Type").classList.replace(color4, "dragon")
+			}; if (document.getElementById("pokemon5").value == dragonTypes[i]){
+				document.getElementById("pokemon5Type").innerHTML = "<img src = '" + dragonTypes + "''>";
+				document.getElementById("pokemon5Type").classList.replace(color5, "dragon")
+			}; if (document.getElementById("pokemon6").value == dragonTypes[i]){
+				document.getElementById("pokemon6Type").innerHTML = "<img src = '" + dragonType + "''>";
+				document.getElementById("pokemon6Type").classList.replace(color6, "dragon")
+			};
+		};
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//fairy types	
+for(i=0; i < fairyTypes.length; i++){
+			if (document.getElementById("pokemon1").value == fairyTypes[i]){
+				document.getElementById("pokemon1Type").innerHTML = "<img src = '" + fairyType + "''>";
+				document.getElementById("pokemon1Type").classList.replace(color1, "fairy")
+			}; if (document.getElementById("pokemon2").value == fairyTypes[i]){
+				document.getElementById("pokemon2Type").innerHTML = "<img src = '" + fairyType + "''>";
+				document.getElementById("pokemon2Type").classList.replace(color2, "fairy")
+			}; if (document.getElementById("pokemon3").value == fairyTypes[i]){
+				document.getElementById("pokemon3Type").innerHTML = "<img src = '" + fairyType + "''>";
+				document.getElementById("pokemon3Type").classList.replace(color3, "fairy")
+			}; if (document.getElementById("pokemon4").value == fairyTypes[i]){
+				document.getElementById("pokemon4Type").innerHTML = "<img src = '" + fairyType + "''>";
+				document.getElementById("pokemon4Type").classList.replace(color4, "fairy")
+			}; if (document.getElementById("pokemon5").value == fairyTypes[i]){
+				document.getElementById("pokemon5Type").innerHTML = "<img src = '" + fairyType + "''>";
+				document.getElementById("pokemon5Type").classList.replace(color5, "fairy")
+			}; if (document.getElementById("pokemon6").value == fairyTypes[i]){
+				document.getElementById("pokemon6Type").innerHTML = "<img src = '" + fairyType + "''>";
+				document.getElementById("pokemon6Type").classList.replace(color6, "fairy")
+			};
+		};
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//fighting types	
+for(i=0; i < fightingTypes.length; i++){
+			if (document.getElementById("pokemon1").value == fightingTypes[i]){
+				document.getElementById("pokemon1Type").innerHTML = "<img src = '" + fightingType + "''>";
+				document.getElementById("pokemon1Type").classList.replace(color1, "fighting")
+			}; if (document.getElementById("pokemon2").value == fightingTypes[i]){
+				document.getElementById("pokemon2Type").innerHTML = "<img src = '" + fightingType + "''>";
+				document.getElementById("pokemon2Type").classList.replace(color2, "fighting")
+			}; if (document.getElementById("pokemon3").value == fightingTypes[i]){
+				document.getElementById("pokemon3Type").innerHTML = "<img src = '" + fightingType + "''>";
+				document.getElementById("pokemon3Type").classList.replace(color3, "fighting")
+			}; if (document.getElementById("pokemon4").value == fightingTypes[i]){
+				document.getElementById("pokemon4Type").innerHTML = "<img src = '" + fightingType + "''>";
+				document.getElementById("pokemon4Type").classList.replace(color4, "fighting")
+			}; if (document.getElementById("pokemon5").value == fightingTypes[i]){
+				document.getElementById("pokemon5Type").innerHTML = "<img src = '" + fightingType + "''>";
+				document.getElementById("pokemon5Type").classList.replace(color5, "fighting")
+			}; if (document.getElementById("pokemon6").value == fightingTypes[i]){
+				document.getElementById("pokemon6Type").innerHTML = "<img src = '" + fightingType + "''>";
+				document.getElementById("pokemon6Type").classList.replace(color6, "fighting")
+			};
+		};
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//ghost types	
+for(i=0; i < ghostTypes.length; i++){
+			if (document.getElementById("pokemon1").value == ghostTypes[i]){
+				document.getElementById("pokemon1Type").innerHTML = "<img src = '" + ghostType + "''>";
+				document.getElementById("pokemon1Type").classList.replace(color1, "ghost")
+			}; if (document.getElementById("pokemon2").value == ghostTypes[i]){
+				document.getElementById("pokemon2Type").innerHTML = "<img src = '" + ghostType + "''>";
+				document.getElementById("pokemon2Type").classList.replace(color2, "ghost")
+			}; if (document.getElementById("pokemon3").value == ghostTypes[i]){
+				document.getElementById("pokemon3Type").innerHTML = "<img src = '" + ghostType + "''>";
+				document.getElementById("pokemon3Type").classList.replace(color3, "ghost")
+			}; if (document.getElementById("pokemon4").value == ghostTypes[i]){
+				document.getElementById("pokemon4Type").innerHTML = "<img src = '" + ghostType + "''>";
+				document.getElementById("pokemon4Type").classList.replace(color4, "ghost")
+			}; if (document.getElementById("pokemon5").value == ghostTypes[i]){
+				document.getElementById("pokemon5Type").innerHTML = "<img src = '" + ghostType + "''>";
+				document.getElementById("pokemon5Type").classList.replace(color5, "ghost")
+			}; if (document.getElementById("pokemon6").value == ghostTypes[i]){
+				document.getElementById("pokemon6Type").innerHTML = "<img src = '" + ghostType + "''>";
+				document.getElementById("pokemon6Type").classList.replace(color6, "ghost")
+			};
+		};
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//ice types	
+for(i=0; i < iceTypes.length; i++){
+			if (document.getElementById("pokemon1").value == iceTypes[i]){
+				document.getElementById("pokemon1Type").innerHTML = "<img src = '" + iceType + "''>";
+				document.getElementById("pokemon1Type").classList.replace(color1, "ice")
+			}; if (document.getElementById("pokemon2").value == iceTypes[i]){
+				document.getElementById("pokemon2Type").innerHTML = "<img src = '" + iceType + "''>";
+				document.getElementById("pokemon2Type").classList.replace(color2, "ice")
+			}; if (document.getElementById("pokemon3").value == iceTypes[i]){
+				document.getElementById("pokemon3Type").innerHTML = "<img src = '" + iceType + "''>";
+				document.getElementById("pokemon3Type").classList.replace(color3, "ice")
+			}; if (document.getElementById("pokemon4").value == iceTypes[i]){
+				document.getElementById("pokemon4Type").innerHTML = "<img src = '" + iceType + "''>";
+				document.getElementById("pokemon4Type").classList.replace(color4, "ice")
+			}; if (document.getElementById("pokemon5").value == iceTypes[i]){
+				document.getElementById("pokemon5Type").innerHTML = "<img src = '" + iceType + "''>";
+				document.getElementById("pokemon5Type").classList.replace(color5, "ice")
+			}; if (document.getElementById("pokemon6").value == iceTypes[i]){
+				document.getElementById("pokemon6Type").innerHTML = "<img src = '" + iceType + "''>";
+				document.getElementById("pokemon6Type").classList.replace(color6, "ice")
+			};
+		};
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//rock types	
+for(i=0; i < rockTypes.length; i++){
+			if (document.getElementById("pokemon1").value == rockTypes[i]){
+				document.getElementById("pokemon1Type").innerHTML = "<img src = '" + rockType + "''>";
+				document.getElementById("pokemon1Type").classList.replace(color1, "rock")
+			}; if (document.getElementById("pokemon2").value == rockTypes[i]){
+				document.getElementById("pokemon2Type").innerHTML = "<img src = '" + rockType + "''>";
+				document.getElementById("pokemon2Type").classList.replace(color2, "rock")
+			}; if (document.getElementById("pokemon3").value == rockTypes[i]){
+				document.getElementById("pokemon3Type").innerHTML = "<img src = '" + rockType + "''>";
+				document.getElementById("pokemon3Type").classList.replace(color3, "rock")
+			}; if (document.getElementById("pokemon4").value == rockTypes[i]){
+				document.getElementById("pokemon4Type").innerHTML = "<img src = '" + rockType + "''>";
+				document.getElementById("pokemon4Type").classList.replace(color4, "rock")
+			}; if (document.getElementById("pokemon5").value == rockTypes[i]){
+				document.getElementById("pokemon5Type").innerHTML = "<img src = '" + rockType + "''>";
+				document.getElementById("pokemon5Type").classList.replace(color5, "rock")
+			}; if (document.getElementById("pokemon6").value == rockTypes[i]){
+				document.getElementById("pokemon6Type").innerHTML = "<img src = '" + rockType + "''>";
+				document.getElementById("pokemon6Type").classList.replace(color6, "rock")
+			};
+		};
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//steel types	
+for(i=0; i < steelTypes.length; i++){
+			if (document.getElementById("pokemon1").value == steelTypes[i]){
+				document.getElementById("pokemon1Type").innerHTML = "<img src = '" + steelType + "''>";
+				document.getElementById("pokemon1Type").classList.replace(color1, "steel")
+			}; if (document.getElementById("pokemon2").value == steelTypes[i]){
+				document.getElementById("pokemon2Type").innerHTML = "<img src = '" + steelType + "''>";
+				document.getElementById("pokemon2Type").classList.replace(color2, "steel")
+			}; if (document.getElementById("pokemon3").value == steelTypes[i]){
+				document.getElementById("pokemon3Type").innerHTML = "<img src = '" + steelType + "''>";
+				document.getElementById("pokemon3Type").classList.replace(color3, "steel")
+			}; if (document.getElementById("pokemon4").value == steelTypes[i]){
+				document.getElementById("pokemon4Type").innerHTML = "<img src = '" + steelType + "''>";
+				document.getElementById("pokemon4Type").classList.replace(color4, "steel")
+			}; if (document.getElementById("pokemon5").value == steelTypes[i]){
+				document.getElementById("pokemon5Type").innerHTML = "<img src = '" + steelType + "''>";
+				document.getElementById("pokemon5Type").classList.replace(color5, "steel")
+			}; if (document.getElementById("pokemon6").value == steelTypes[i]){
+				document.getElementById("pokemon6Type").innerHTML = "<img src = '" + steelType + "''>";
+				document.getElementById("pokemon6Type").classList.replace(color6, "steel")
+			};
+		};
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 //Secondary types 		
 		for(i=0; i < allPokemon.length; i++){
 			if(document.getElementById("pokemon1").value == allPokemon[i]){
@@ -799,20 +1046,87 @@ function changeIcon(){
 					document.getElementById("pokemon5.5Type").classList.replace(color55, "ice")
 				}else if(allTypes2[i] == "Psychic"){
 					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + psychicType + "''>";
-					document.getElementById("pokemon5.5Type").classList.replace(color15, "psychic")
+					document.getElementById("pokemon5.5Type").classList.replace(color55, "psychic")
 				}else if(allTypes2[i] == "Rock"){
 					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + rockType + "''>";
-					document.getElementById("pokemon5.5Type").classList.replace(color15, "rock")
+					document.getElementById("pokemon5.5Type").classList.replace(color55, "rock")
 				}else if(allTypes2[i] == "Steel"){
 					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + steelType + "''>";
-					document.getElementById("pokemon5.5Type").classList.replace(color15, "steel")
+					document.getElementById("pokemon5.5Type").classList.replace(color55, "steel")
 				}else if(allTypes2[i] == "Null"){
 					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + pokeball + "''>";
-					document.getElementById("pokemon5.5Type").classList.replace(color15, "blank")
+					document.getElementById("pokemon5.5Type").classList.replace(color55, "blank")
+				}
+			};if(document.getElementById("pokemon6").value == allPokemon[i]){
+				if(allTypes2[i] == "Grass"){
+					document.getElementById("pokemon6.5Type").innerHTML = "<img src = '" + grassType + "''>";
+					document.getElementById("pokemon6.5Type").classList.replace(color65, "grass")
+				}else if(allTypes2[i] == "Fire"){
+					document.getElementById("pokemon6.5Type").innerHTML = "<img src = '" + fireType + "''>";
+					document.getElementById("pokemon6.5Type").classList.replace(color65, "fire")
+				}else if(allTypes2[i] == "Water"){
+					document.getElementById("pokemon6.5Type").innerHTML = "<img src = '" + waterType + "''>";
+					document.getElementById("pokemon6.5Type").classList.replace(color65, "water")
+				}else if(allTypes2[i] == "Bug"){
+					document.getElementById("pokemon6.5Type").innerHTML = "<img src = '" + bugType + "''>";
+					document.getElementById("pokemon6.5Type").classList.replace(color65, "bug")
+				}else if(allTypes2[i] == "Flying"){
+					document.getElementById("pokemon6.5Type").innerHTML = "<img src = '" + flyingType + "''>";
+					document.getElementById("pokemon6.5Type").classList.replace(color65, "flying")
+				}else if(allTypes2[i] == "Normal"){
+					document.getElementById("pokemon6.5Type").innerHTML = "<img src = '" + normalType + "''>";
+					document.getElementById("pokemon6.5Type").classList.replace(color65, "normal")
+				}else if(allTypes2[i] == "Poison"){
+					document.getElementById("pokemon6.5Type").innerHTML = "<img src = '" + poisonType + "''>";
+					document.getElementById("pokemon6.5Type").classList.replace(color65, "poison")
+				}else if(allTypes2[i] == "Electric"){
+					document.getElementById("pokemon6.5Type").innerHTML = "<img src = '" + electricType + "''>";
+					document.getElementById("pokemon6.5Type").classList.replace(color65, "electric")
+				}else if(allTypes2[i] == "Ground"){
+					document.getElementById("pokemon6.5Type").innerHTML = "<img src = '" + groundType + "''>";
+					document.getElementById("pokemon6.5Type").classList.replace(color65, "ground")
+				}else if(allTypes2[i] == "Dark"){
+					document.getElementById("pokemon6.5Type").innerHTML = "<img src = '" + darkType + "''>";
+					document.getElementById("pokemon6.5Type").classList.replace(color65, "dark")
+				}else if(allTypes2[i] == "Dragon"){
+					document.getElementById("pokemon6.5Type").innerHTML = "<img src = '" + dragonType + "''>";
+					document.getElementById("pokemon6.5Type").classList.replace(color65, "dragon")
+				}else if(allTypes2[i] == "Fairy"){
+					document.getElementById("pokemon6.5Type").innerHTML = "<img src = '" + fairyType + "''>";
+					document.getElementById("pokemon6.5Type").classList.replace(color65, "fairy")
+				}else if(allTypes2[i] == "Fighting"){
+					document.getElementById("pokemon6.5Type").innerHTML = "<img src = '" + fightingType + "''>";
+					document.getElementById("pokemon6.5Type").classList.replace(color65, "fighting")
+				}else if(allTypes2[i] == "Ghost"){
+					document.getElementById("pokemon6.5Type").innerHTML = "<img src = '" + ghostType + "''>";
+					document.getElementById("pokemon6.5Type").classList.replace(color65, "ghost")
+				}else if(allTypes2[i] == "Ice"){
+					document.getElementById("pokemon6.5Type").innerHTML = "<img src = '" + iceType + "''>";
+					document.getElementById("pokemon6.5Type").classList.replace(color65, "ice")
+				}else if(allTypes2[i] == "Psychic"){
+					document.getElementById("pokemon6.5Type").innerHTML = "<img src = '" + psychicType + "''>";
+					document.getElementById("pokemon6.5Type").classList.replace(color65, "psychic")
+				}else if(allTypes2[i] == "Rock"){
+					document.getElementById("pokemon6.5Type").innerHTML = "<img src = '" + rockType + "''>";
+					document.getElementById("pokemon6.5Type").classList.replace(color65, "rock")
+				}else if(allTypes2[i] == "Steel"){
+					document.getElementById("pokemon6.5Type").innerHTML = "<img src = '" + steelType + "''>";
+					document.getElementById("pokemon6.5Type").classList.replace(color65, "steel")
+				}else if(allTypes2[i] == "Null"){
+					document.getElementById("pokemon6.5Type").innerHTML = "<img src = '" + pokeball + "''>";
+					document.getElementById("pokemon6.5Type").classList.replace(color65, "blank")
 				}
 			};
 		};
 
+	}
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+		event.preventDefualt();
+			
+	</script>
+
+	</body>
+</html>
 	}
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 		event.preventDefualt();
