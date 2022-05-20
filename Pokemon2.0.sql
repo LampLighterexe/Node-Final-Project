@@ -12,12 +12,12 @@ Create table Team
 (
 trainerID INT Identity(1,1),
 teamName varchar(40),
-pokemon#1 varchar(20),
-pokemon#2 varchar(20),
-pokemon#3 varchar(20),
-pokemon#4 varchar(20),
-pokemon#5 varchar(20),
-pokemon#6 varchar(20),
+pokemon1 varchar(20),
+pokemon2 varchar(20),
+pokemon3 varchar(20),
+pokemon4 varchar(20),
+pokemon5 varchar(20),
+pokemon6 varchar(20),
 );
 ---------------------------------------------
 		--Pokedex--
