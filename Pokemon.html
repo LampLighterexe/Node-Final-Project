@@ -77,6 +77,8 @@
 	poisonTypes = []
 	electricTypes = []
 	groundTypes = []
+	allPokemon = []
+	allTypes2 = []
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 function dropdown()
@@ -110,37 +112,55 @@ function dropdown()
 						if(data.recordset[i].pokemonType1 == "Grass")
 						{
 							grassTypes.push(data.recordset[i].pokedexName)
+							allPokemon.push(data.readyState[i].pokedexName)
+							allTypes2.push(data.recordset[i].pokemonType2)
 						}
 						else if(data.recordset[i].pokemonType1 == "Fire")
 						{
 							fireTypes.push(data.recordset[i].pokedexName)
+							allPokemon.push(data.readyState[i].pokedexName)
+							allTypes2.push(data.recordset[i].pokemonType2)
 						}
 						else if(data.recordset[i].pokemonType1 == "Water")
 						{
 							waterTypes.push(data.recordset[i].pokedexName)
+							allPokemon.push(data.readyState[i].pokedexName)
+							allTypes2.push(data.recordset[i].pokemonType2)
 						}
 						else if(data.recordset[i].pokemonType1 == "Bug"){
 							bugTypes.push(data.recordset[i].pokedexName)
+							allPokemon.push(data.readyState[i].pokedexName)
+							allTypes2.push(data.recordset[i].pokemonType2)
 						}
 						else if(data.recordset[i].pokemonType1 == "Flying")
 						{
 							flyingTypes.push(data.recordset[i].pokedexName)
+							allPokemon.push(data.readyState[i].pokedexName)
+							allTypes2.push(data.recordset[i].pokemonType2)
 						}
 						else if(data.recordset[i].pokemonType1 == "Normal")
 						{
 							normalTypes.push(data.recordset[i].pokedexName)
+							allPokemon.push(data.readyState[i].pokedexName)
+							allTypes2.push(data.recordset[i].pokemonType2)
 						}
 						else if(data.recordset[i].pokemonType1 == "Poison")
 						{
 							poisonTypes.push(data.recordset[i].pokedexName)
+							allPokemon.push(data.readyState[i].pokedexName)
+							allTypes2.push(data.recordset[i].pokemonType2)
 						}
 						else if(data.recordset[i].pokemonType1 == "Electric")
 						{
 							electricTypes.push(data.recordset[i].pokedexName)
+							allPokemon.push(data.readyState[i].pokedexName)
+							allTypes2.push(data.recordset[i].pokemonType2)
 						}
 						else if(data.recordset[i].pokemonType1 == "Ground")
 						{
 							groundTypes.push(data.recordset[i].pokedexName)
+							allPokemon.push(data.readyState[i].pokedexName)
+							allTypes2.push(data.recordset[i].pokemonType2)
 						}
 					}
 
@@ -492,6 +512,307 @@ function changeIcon(){
 				document.getElementById("pokemon6Type").classList.replace(color6, "ground")
 			};
 		};
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//Secondary types 		
+		for(i=0; i < allPokemon.length; i++){
+			if(document.getElementById("pokemon1").value == allPokemon[i]){
+				if(allTypes2[i] == "Grass"){
+					document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + grassType + "''>";
+					document.getElementById("pokemon1.5Type").classList.replace(color15, "grass")
+				}else if(allTypes2[i] == "Fire"){
+					document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + fireType + "''>";
+					document.getElementById("pokemon1.5Type").classList.replace(color15, "fire")
+				}else if(allTypes2[i] == "Water"){
+					document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + waterType + "''>";
+					document.getElementById("pokemon1.5Type").classList.replace(color15, "water")
+				}else if(allTypes2[i] == "Bug"){
+					document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + bugType + "''>";
+					document.getElementById("pokemon1.5Type").classList.replace(color15, "bug")
+				}else if(allTypes2[i] == "Flying"){
+					document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + flyingType + "''>";
+					document.getElementById("pokemon1.5Type").classList.replace(color15, "flying")
+				}else if(allTypes2[i] == "Normal"){
+					document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + normalType + "''>";
+					document.getElementById("pokemon1.5Type").classList.replace(color15, "normal")
+				}else if(allTypes2[i] == "Poison"){
+					document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + poisonType + "''>";
+					document.getElementById("pokemon1.5Type").classList.replace(color15, "poison")
+				}else if(allTypes2[i] == "Electric"){
+					document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + electricType + "''>";
+					document.getElementById("pokemon1.5Type").classList.replace(color15, "electric")
+				}else if(allTypes2[i] == "Ground"){
+					document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + groundType + "''>";
+					document.getElementById("pokemon1.5Type").classList.replace(color15, "ground")
+				}else if(allTypes2[i] == "Dark"){
+					document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + darkType + "''>";
+					document.getElementById("pokemon1.5Type").classList.replace(color15, "dark")
+				}else if(allTypes2[i] == "Dragon"){
+					document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + dragonType + "''>";
+					document.getElementById("pokemon1.5Type").classList.replace(color15, "dragon")
+				}else if(allTypes2[i] == "Fairy"){
+					document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + fairyType + "''>";
+					document.getElementById("pokemon1.5Type").classList.replace(color15, "fairy")
+				}else if(allTypes2[i] == "Fighting"){
+					document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + fightingType + "''>";
+					document.getElementById("pokemon1.5Type").classList.replace(color15, "fighting")
+				}else if(allTypes2[i] == "Ghost"){
+					document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + ghostType + "''>";
+					document.getElementById("pokemon1.5Type").classList.replace(color15, "ghost")
+				}else if(allTypes2[i] == "Ice"){
+					document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + iceType + "''>";
+					document.getElementById("pokemon1.5Type").classList.replace(color15, "ice")
+				}else if(allTypes2[i] == "Psychic"){
+					document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + psychicType + "''>";
+					document.getElementById("pokemon1.5Type").classList.replace(color15, "psychic")
+				}else if(allTypes2[i] == "Rock"){
+					document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + rockType + "''>";
+					document.getElementById("pokemon1.5Type").classList.replace(color15, "rock")
+				}else if(allTypes2[i] == "Steel"){
+					document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + steelType + "''>";
+					document.getElementById("pokemon1.5Type").classList.replace(color15, "steel")
+				}else if(allTypes2[i] == "Null"){
+					document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + pokeball + "''>";
+					document.getElementById("pokemon1.5Type").classList.replace(color15, "blank")
+				}
+			};if(document.getElementById("pokemon2").value == allPokemon[i]){
+				if(allTypes2[i] == "Grass"){
+					document.getElementById("pokemon2.5Type").innerHTML = "<img src = '" + grassType + "''>";
+					document.getElementById("pokemon2.5Type").classList.replace(color25, "grass")
+				}else if(allTypes2[i] == "Fire"){
+					document.getElementById("pokemon2.5Type").innerHTML = "<img src = '" + fireType + "''>";
+					document.getElementById("pokemon2.5Type").classList.replace(color25, "fire")
+				}else if(allTypes2[i] == "Water"){
+					document.getElementById("pokemon2.5Type").innerHTML = "<img src = '" + waterType + "''>";
+					document.getElementById("pokemon2.5Type").classList.replace(color25, "water")
+				}else if(allTypes2[i] == "Bug"){
+					document.getElementById("pokemon2.5Type").innerHTML = "<img src = '" + bugType + "''>";
+					document.getElementById("pokemon2.5Type").classList.replace(color25, "bug")
+				}else if(allTypes2[i] == "Flying"){
+					document.getElementById("pokemon2.5Type").innerHTML = "<img src = '" + flyingType + "''>";
+					document.getElementById("pokemon2.5Type").classList.replace(color25, "flying")
+				}else if(allTypes2[i] == "Normal"){
+					document.getElementById("pokemon2.5Type").innerHTML = "<img src = '" + normalType + "''>";
+					document.getElementById("pokemon2.5Type").classList.replace(color25, "normal")
+				}else if(allTypes2[i] == "Poison"){
+					document.getElementById("pokemon2.5Type").innerHTML = "<img src = '" + poisonType + "''>";
+					document.getElementById("pokemon2.5Type").classList.replace(color25, "poison")
+				}else if(allTypes2[i] == "Electric"){
+					document.getElementById("pokemon2.5Type").innerHTML = "<img src = '" + electricType + "''>";
+					document.getElementById("pokemon2.5Type").classList.replace(color25, "electric")
+				}else if(allTypes2[i] == "Ground"){
+					document.getElementById("pokemon2.5Type").innerHTML = "<img src = '" + groundType + "''>";
+					document.getElementById("pokemon2.5Type").classList.replace(color25, "ground")
+				}else if(allTypes2[i] == "Dark"){
+					document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + darkType + "''>";
+					document.getElementById("pokemon1.5Type").classList.replace(color25, "dark")
+				}else if(allTypes2[i] == "Dragon"){
+					document.getElementById("pokemon2.5Type").innerHTML = "<img src = '" + dragonType + "''>";
+					document.getElementById("pokemon2.5Type").classList.replace(color25, "dragon")
+				}else if(allTypes2[i] == "Fairy"){
+					document.getElementById("pokemon2.5Type").innerHTML = "<img src = '" + fairyType + "''>";
+					document.getElementById("pokemon2.5Type").classList.replace(color25, "fairy")
+				}else if(allTypes2[i] == "Fighting"){
+					document.getElementById("pokemon2.5Type").innerHTML = "<img src = '" + fightingType + "''>";
+					document.getElementById("pokemon2.5Type").classList.replace(color25, "fighting")
+				}else if(allTypes2[i] == "Ghost"){
+					document.getElementById("pokemon2.5Type").innerHTML = "<img src = '" + ghostType + "''>";
+					document.getElementById("pokemon2.5Type").classList.replace(color25, "ghost")
+				}else if(allTypes2[i] == "Ice"){
+					document.getElementById("pokemon2.5Type").innerHTML = "<img src = '" + iceType + "''>";
+					document.getElementById("pokemon2.5Type").classList.replace(color25, "ice")
+				}else if(allTypes2[i] == "Psychic"){
+					document.getElementById("pokemon2.5Type").innerHTML = "<img src = '" + psychicType + "''>";
+					document.getElementById("pokemon2.5Type").classList.replace(color25, "psychic")
+				}else if(allTypes2[i] == "Rock"){
+					document.getElementById("pokemon2.5Type").innerHTML = "<img src = '" + rockType + "''>";
+					document.getElementById("pokemon2.5Type").classList.replace(color25, "rock")
+				}else if(allTypes2[i] == "Steel"){
+					document.getElementById("pokemon2.5Type").innerHTML = "<img src = '" + steelType + "''>";
+					document.getElementById("pokemon2.5Type").classList.replace(color25, "steel")
+				}else if(allTypes2[i] == "Null"){
+					document.getElementById("pokemon2.5Type").innerHTML = "<img src = '" + pokeball + "''>";
+					document.getElementById("pokemon2.5Type").classList.replace(color25, "blank")
+				}
+			};if(document.getElementById("pokemon3").value == allPokemon[i]){
+				if(allTypes2[i] == "Grass"){
+					document.getElementById("pokemon3.5Type").innerHTML = "<img src = '" + grassType + "''>";
+					document.getElementById("pokemon3.5Type").classList.replace(color35, "grass")
+				}else if(allTypes2[i] == "Fire"){
+					document.getElementById("pokemon3.5Type").innerHTML = "<img src = '" + fireType + "''>";
+					document.getElementById("pokemon3.5Type").classList.replace(color35, "fire")
+				}else if(allTypes2[i] == "Water"){
+					document.getElementById("pokemon3.5Type").innerHTML = "<img src = '" + waterType + "''>";
+					document.getElementById("pokemon3.5Type").classList.replace(color35, "water")
+				}else if(allTypes2[i] == "Bug"){
+					document.getElementById("pokemon3.5Type").innerHTML = "<img src = '" + bugType + "''>";
+					document.getElementById("pokemon3.5Type").classList.replace(color35, "bug")
+				}else if(allTypes2[i] == "Flying"){
+					document.getElementById("pokemon3.5Type").innerHTML = "<img src = '" + flyingType + "''>";
+					document.getElementById("pokemon3.5Type").classList.replace(color35, "flying")
+				}else if(allTypes2[i] == "Normal"){
+					document.getElementById("pokemon3.5Type").innerHTML = "<img src = '" + normalType + "''>";
+					document.getElementById("pokemon3.5Type").classList.replace(color35, "normal")
+				}else if(allTypes2[i] == "Poison"){
+					document.getElementById("pokemon3.5Type").innerHTML = "<img src = '" + poisonType + "''>";
+					document.getElementById("pokemon3.5Type").classList.replace(color35, "poison")
+				}else if(allTypes2[i] == "Electric"){
+					document.getElementById("pokemon3.5Type").innerHTML = "<img src = '" + electricType + "''>";
+					document.getElementById("pokemon3.5Type").classList.replace(color35, "electric")
+				}else if(allTypes2[i] == "Ground"){
+					document.getElementById("pokemon3.5Type").innerHTML = "<img src = '" + groundType + "''>";
+					document.getElementById("pokemon3.5Type").classList.replace(color35, "ground")
+				}else if(allTypes2[i] == "Dark"){
+					document.getElementById("pokemon3.5Type").innerHTML = "<img src = '" + darkType + "''>";
+					document.getElementById("pokemon3.5Type").classList.replace(color35, "dark")
+				}else if(allTypes2[i] == "Dragon"){
+					document.getElementById("pokemon3.5Type").innerHTML = "<img src = '" + dragonType + "''>";
+					document.getElementById("pokemon3.5Type").classList.replace(color35, "dragon")
+				}else if(allTypes2[i] == "Fairy"){
+					document.getElementById("pokemon3.5Type").innerHTML = "<img src = '" + fairyType + "''>";
+					document.getElementById("pokemon3.5Type").classList.replace(color35, "fairy")
+				}else if(allTypes2[i] == "Fighting"){
+					document.getElementById("pokemon3.5Type").innerHTML = "<img src = '" + fightingType + "''>";
+					document.getElementById("pokemon3.5Type").classList.replace(color35, "fighting")
+				}else if(allTypes2[i] == "Ghost"){
+					document.getElementById("pokemon3.5Type").innerHTML = "<img src = '" + ghostType + "''>";
+					document.getElementById("pokemon3.5Type").classList.replace(color35, "ghost")
+				}else if(allTypes2[i] == "Ice"){
+					document.getElementById("pokemon3.5Type").innerHTML = "<img src = '" + iceType + "''>";
+					document.getElementById("pokemon3.5Type").classList.replace(color35, "ice")
+				}else if(allTypes2[i] == "Psychic"){
+					document.getElementById("pokemon3.5Type").innerHTML = "<img src = '" + psychicType + "''>";
+					document.getElementById("pokemon3.5Type").classList.replace(color35, "psychic")
+				}else if(allTypes2[i] == "Rock"){
+					document.getElementById("pokemon3.5Type").innerHTML = "<img src = '" + rockType + "''>";
+					document.getElementById("pokemon3.5Type").classList.replace(color35, "rock")
+				}else if(allTypes2[i] == "Steel"){
+					document.getElementById("pokemon3.5Type").innerHTML = "<img src = '" + steelType + "''>";
+					document.getElementById("pokemon3.5Type").classList.replace(color35, "steel")
+				}else if(allTypes2[i] == "Null"){
+					document.getElementById("pokemon3.5Type").innerHTML = "<img src = '" + pokeball + "''>";
+					document.getElementById("pokemon3.5Type").classList.replace(color35, "blank")
+				}
+			};if(document.getElementById("pokemon4").value == allPokemon[i]){
+				if(allTypes2[i] == "Grass"){
+					document.getElementById("pokemon4.5Type").innerHTML = "<img src = '" + grassType + "''>";
+					document.getElementById("pokemon4.5Type").classList.replace(color45, "grass")
+				}else if(allTypes2[i] == "Fire"){
+					document.getElementById("pokemon4.5Type").innerHTML = "<img src = '" + fireType + "''>";
+					document.getElementById("pokemon4.5Type").classList.replace(color45, "fire")
+				}else if(allTypes2[i] == "Water"){
+					document.getElementById("pokemon4.5Type").innerHTML = "<img src = '" + waterType + "''>";
+					document.getElementById("pokemon4.5Type").classList.replace(color45, "water")
+				}else if(allTypes2[i] == "Bug"){
+					document.getElementById("pokemon4.5Type").innerHTML = "<img src = '" + bugType + "''>";
+					document.getElementById("pokemon4.5Type").classList.replace(color45, "bug")
+				}else if(allTypes2[i] == "Flying"){
+					document.getElementById("pokemon4.5Type").innerHTML = "<img src = '" + flyingType + "''>";
+					document.getElementById("pokemon4.5Type").classList.replace(color45, "flying")
+				}else if(allTypes2[i] == "Normal"){
+					document.getElementById("pokemon4.5Type").innerHTML = "<img src = '" + normalType + "''>";
+					document.getElementById("pokemon4.5Type").classList.replace(color45, "normal")
+				}else if(allTypes2[i] == "Poison"){
+					document.getElementById("pokemon4.5Type").innerHTML = "<img src = '" + poisonType + "''>";
+					document.getElementById("pokemon4.5Type").classList.replace(color45, "poison")
+				}else if(allTypes2[i] == "Electric"){
+					document.getElementById("pokemon4.5Type").innerHTML = "<img src = '" + electricType + "''>";
+					document.getElementById("pokemon4.5Type").classList.replace(color45, "electric")
+				}else if(allTypes2[i] == "Ground"){
+					document.getElementById("pokemon4.5Type").innerHTML = "<img src = '" + groundType + "''>";
+					document.getElementById("pokemon4.5Type").classList.replace(color45, "ground")
+				}else if(allTypes2[i] == "Dark"){
+					document.getElementById("pokemon4.5Type").innerHTML = "<img src = '" + darkType + "''>";
+					document.getElementById("pokemon4.5Type").classList.replace(color45, "dark")
+				}else if(allTypes2[i] == "Dragon"){
+					document.getElementById("pokemon4.5Type").innerHTML = "<img src = '" + dragonType + "''>";
+					document.getElementById("pokemon4.5Type").classList.replace(color45, "dragon")
+				}else if(allTypes2[i] == "Fairy"){
+					document.getElementById("pokemon4.5Type").innerHTML = "<img src = '" + fairyType + "''>";
+					document.getElementById("pokemon4.5Type").classList.replace(color45, "fairy")
+				}else if(allTypes2[i] == "Fighting"){
+					document.getElementById("pokemon4.5Type").innerHTML = "<img src = '" + fightingType + "''>";
+					document.getElementById("pokemon4.5Type").classList.replace(color45, "fighting")
+				}else if(allTypes2[i] == "Ghost"){
+					document.getElementById("pokemon4.5Type").innerHTML = "<img src = '" + ghostType + "''>";
+					document.getElementById("pokemon4.5Type").classList.replace(color45, "ghost")
+				}else if(allTypes2[i] == "Ice"){
+					document.getElementById("pokemon4.5Type").innerHTML = "<img src = '" + iceType + "''>";
+					document.getElementById("pokemon4.5Type").classList.replace(color45, "ice")
+				}else if(allTypes2[i] == "Psychic"){
+					document.getElementById("pokemon4.5Type").innerHTML = "<img src = '" + psychicType + "''>";
+					document.getElementById("pokemon4.5Type").classList.replace(color45, "psychic")
+				}else if(allTypes2[i] == "Rock"){
+					document.getElementById("pokemon4.5Type").innerHTML = "<img src = '" + rockType + "''>";
+					document.getElementById("pokemon4.5Type").classList.replace(color45, "rock")
+				}else if(allTypes2[i] == "Steel"){
+					document.getElementById("pokemon4.5Type").innerHTML = "<img src = '" + steelType + "''>";
+					document.getElementById("pokemon4.5Type").classList.replace(color45, "steel")
+				}else if(allTypes2[i] == "Null"){
+					document.getElementById("pokemon4.5Type").innerHTML = "<img src = '" + pokeball + "''>";
+					document.getElementById("pokemon4.5Type").classList.replace(color45, "blank")
+				}
+			};if(document.getElementById("pokemon5").value == allPokemon[i]){
+				if(allTypes2[i] == "Grass"){
+					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + grassType + "''>";
+					document.getElementById("pokemon5.5Type").classList.replace(color55, "grass")
+				}else if(allTypes2[i] == "Fire"){
+					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + fireType + "''>";
+					document.getElementById("pokemon5.5Type").classList.replace(color55, "fire")
+				}else if(allTypes2[i] == "Water"){
+					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + waterType + "''>";
+					document.getElementById("pokemon5.5Type").classList.replace(color55, "water")
+				}else if(allTypes2[i] == "Bug"){
+					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + bugType + "''>";
+					document.getElementById("pokemon5.5Type").classList.replace(color55, "bug")
+				}else if(allTypes2[i] == "Flying"){
+					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + flyingType + "''>";
+					document.getElementById("pokemon5.5Type").classList.replace(color55, "flying")
+				}else if(allTypes2[i] == "Normal"){
+					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + normalType + "''>";
+					document.getElementById("pokemon5.5Type").classList.replace(color55, "normal")
+				}else if(allTypes2[i] == "Poison"){
+					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + poisonType + "''>";
+					document.getElementById("pokemon5.5Type").classList.replace(color55, "poison")
+				}else if(allTypes2[i] == "Electric"){
+					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + electricType + "''>";
+					document.getElementById("pokemon5.5Type").classList.replace(color55, "electric")
+				}else if(allTypes2[i] == "Ground"){
+					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + groundType + "''>";
+					document.getElementById("pokemon5.5Type").classList.replace(color55, "ground")
+				}else if(allTypes2[i] == "Dark"){
+					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + darkType + "''>";
+					document.getElementById("pokemon5.5Type").classList.replace(color55, "dark")
+				}else if(allTypes2[i] == "Dragon"){
+					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + dragonType + "''>";
+					document.getElementById("pokemon5.5Type").classList.replace(color55, "dragon")
+				}else if(allTypes2[i] == "Fairy"){
+					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + fairyType + "''>";
+					document.getElementById("pokemon5.5Type").classList.replace(color55, "fairy")
+				}else if(allTypes2[i] == "Fighting"){
+					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + fightingType + "''>";
+					document.getElementById("pokemon5.5Type").classList.replace(color55, "fighting")
+				}else if(allTypes2[i] == "Ghost"){
+					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + ghostType + "''>";
+					document.getElementById("pokemon5.5Type").classList.replace(color55, "ghost")
+				}else if(allTypes2[i] == "Ice"){
+					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + iceType + "''>";
+					document.getElementById("pokemon5.5Type").classList.replace(color55, "ice")
+				}else if(allTypes2[i] == "Psychic"){
+					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + psychicType + "''>";
+					document.getElementById("pokemon5.5Type").classList.replace(color15, "psychic")
+				}else if(allTypes2[i] == "Rock"){
+					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + rockType + "''>";
+					document.getElementById("pokemon5.5Type").classList.replace(color15, "rock")
+				}else if(allTypes2[i] == "Steel"){
+					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + steelType + "''>";
+					document.getElementById("pokemon5.5Type").classList.replace(color15, "steel")
+				}else if(allTypes2[i] == "Null"){
+					document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + pokeball + "''>";
+					document.getElementById("pokemon5.5Type").classList.replace(color15, "blank")
+				}
+			};
+		};
+
 	}
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 		event.preventDefualt();
