@@ -129,3 +129,8 @@ button
     background: #539DDF;
     box-shadow: 0 0 20px #539DDF;
 }
+
+.blank {
+    background-color: #95a4b165;
+    box-shadow: 0, 0, 20px #95a4b165;
+}

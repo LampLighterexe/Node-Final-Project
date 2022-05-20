@@ -45,17 +45,17 @@
         <h3 style="position:relative;top:-100px">Pick a pokemon to add to your team</h3>
 		<h3></h3>
 
-        <select name="pokemon" id="pokemon1" onchange="changeIcon()">	</select> <div id = "pokemon1Type" class="icon grass" style="position:relative; right:-170px; top:-134px"></div>
+        <select name="pokemon" id="pokemon1" onchange="changeIcon()">	</select> <div id = "pokemon1Type" class="icon blank" style="position:relative; right:-170px; top:-134px"></div> <div id = "pokemon1.5Type" class="icon blank" style="position:relative; right:-225px; top:-184px"></div>
 		
-		<select name="pokemon" id="pokemon2" onchange="changeIcon()">	</select> <div id = "pokemon2Type" class="icon fire" style="position:relative; right:-170px; top:-134px"></div>
+		<select name="pokemon" id="pokemon2" onchange="changeIcon()">	</select> <div id = "pokemon2Type" class="icon blank" style="position:relative; right:-170px; top:-134px"></div> <div id = "pokemon2.5Type" class="icon blank" style="position:relative; right:-225px; top:-184px"></div>
 	
-		<select name="pokemon" id="pokemon3" onchange="changeIcon()">	</select> <div id = "pokemon3Type" class="icon water" style="position:relative; right:-170px; top:-134px"></div>
+		<select name="pokemon" id="pokemon3" onchange="changeIcon()">	</select> <div id = "pokemon3Type" class="icon blank" style="position:relative; right:-170px; top:-134px"></div> <div id = "pokemon3.5Type" class="icon blank" style="position:relative; right:-225px; top:-184px"></div>
 
-		<select name="pokemon" id="pokemon4" onchange="changeIcon()">	</select> <div id = "pokemon4Type" class="icon flying" style="position:relative; right:-170px; top:-134px"></div>
+		<select name="pokemon" id="pokemon4" onchange="changeIcon()">	</select> <div id = "pokemon4Type" class="icon blank" style="position:relative; right:-170px; top:-134px"></div> <div id = "pokemon4.5Type" class="icon blank" style="position:relative; right:-225px; top:-184px"></div>
 
-		<select name="pokemon" id="pokemon5" onchange="changeIcon()">	</select> <div id = "pokemon5Type" class="icon poison" style="position:relative; right:-170px; top:-134px"></div>
+		<select name="pokemon" id="pokemon5" onchange="changeIcon()">	</select> <div id = "pokemon5Type" class="icon blank" style="position:relative; right:-170px; top:-134px"></div> <div id = "pokemon5.5Type" class="icon blank" style="position:relative; right:-225px; top:-184px"></div>
 
-		<select name="pokemon" id="pokemon6" onchange="changeIcon()">	</select> <div id = "pokemon6Type" class="icon ground" style="position:relative; right:-170px; top:-134px"></div>
+		<select name="pokemon" id="pokemon6" onchange="changeIcon()">	</select> <div id = "pokemon6Type" class="icon blank" style="position:relative; right:-170px; top:-134px"></div> <div id = "pokemon6.5Type" class="icon blank" style="position:relative; right:-225px; top:-184px"></div>
 		
 		<h2 style="position:relative; top:-120px">Team Name: </h2> <input type = "text" id = "teamName" style="position:relative; right:-150px; top:-170px"> </input>  
 
@@ -246,13 +246,21 @@ function changeIcon(){
 		var psychicType = "images/psychic.svg"
 		var rockType = "images/rock.svg"
 		var steelType = "images/steel.svg"
+		var pokeball = "images/pokeball.svg"
 
-		document.getElementById("pokemon1Type").innerHTML = "<img src = '" + grassType + "''>";
-		document.getElementById("pokemon2Type").innerHTML = "<img src = '" + fireType + "''>";
-		document.getElementById("pokemon3Type").innerHTML = "<img src = '" + waterType + "''>";
-		document.getElementById("pokemon4Type").innerHTML = "<img src = '" + flyingType + "''>";
-		document.getElementById("pokemon5Type").innerHTML = "<img src = '" + poisonType + "''>";
-		document.getElementById("pokemon6Type").innerHTML = "<img src = '" + groundType + "''>";
+		document.getElementById("pokemon1Type").innerHTML = "<img src = '" + pokeball + "''>";
+		document.getElementById("pokemon2Type").innerHTML = "<img src = '" + pokeball + "''>";
+		document.getElementById("pokemon3Type").innerHTML = "<img src = '" + pokeball + "''>";
+		document.getElementById("pokemon4Type").innerHTML = "<img src = '" + pokeball + "''>";
+		document.getElementById("pokemon5Type").innerHTML = "<img src = '" + pokeball + "''>";
+		document.getElementById("pokemon6Type").innerHTML = "<img src = '" + pokeball + "''>";
+
+		document.getElementById("pokemon1.5Type").innerHTML = "<img src = '" + pokeball + "''>";
+		document.getElementById("pokemon2.5Type").innerHTML = "<img src = '" + pokeball + "''>";
+		document.getElementById("pokemon3.5Type").innerHTML = "<img src = '" + pokeball + "''>";
+		document.getElementById("pokemon4.5Type").innerHTML = "<img src = '" + pokeball + "''>";
+		document.getElementById("pokemon5.5Type").innerHTML = "<img src = '" + pokeball + "''>";
+		document.getElementById("pokemon6.5Type").innerHTML = "<img src = '" + pokeball + "''>";
 
 
 		// console.log(document.getElementById("pokemon1Type").classList)
@@ -264,6 +272,13 @@ function changeIcon(){
 		var color4 = document.getElementById("pokemon4Type").classList[1];
 		var color5 = document.getElementById("pokemon5Type").classList[1];
 		var color6 = document.getElementById("pokemon6Type").classList[1];
+		
+		var color15 = document.getElementById("pokemon1.5Type").classList[1];
+		var color25 = document.getElementById("pokemon2.5Type").classList[1];
+		var color35 = document.getElementById("pokemon3.5Type").classList[1];
+		var color45 = document.getElementById("pokemon4.5Type").classList[1];
+		var color55 = document.getElementById("pokemon5.5Type").classList[1];
+		var color65 = document.getElementById("pokemon6.5Type").classList[1];
 
 		//console.log("colors defined")
 		
