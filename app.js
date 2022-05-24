@@ -9,17 +9,26 @@ const dao = require('./dao.js')
 const sql = require('mssql')
 
 const express = require('express')
-const multer  = require('multer');
 const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
-const upload = multer({ dest: './public/data/uploads/' })
+
 
 const app = express()
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '\\public\\Pokemon.html')
+  
+})
+
+///////////////////////////////////////////////////////////
+app.get('/gimme',(req, res) =>
+  res.status(200).sendFile('file:///' + __dirname + '//public//')
+  )
+///////////////////////////////////////////////////////////
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname + '/public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
 //Get for pokemon names
 app.get('/getPokemonNames',async (req, res) =>
   {
@@ -37,9 +46,9 @@ app.get('/getPokemonTeams',async (req, res) =>
     var pokemonTeams = await dao.getTeams()
 
     //console.log(pokemonNames)
-    res.status(200).send(pokemonTeams)
+    res.status(200).send(pokemonTeams.recordset)
     
-    console.log('pokemon Teams app.js')
+    // console.log('pokemon Teams app.js')
   })
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Pokemon Team Add
