@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -37,7 +38,7 @@
 	</Style>
 	</head>
 
-	<body onload="dropdown(), dropdownTeam(),  dropdownTeamMembers()">
+	<body onload="dropdown(), dropdownTeam()">
 		<body style="background-image: url('https://images.unsplash.com/photo-1585314062604-1a357de8b000?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80'); background-size: cover">
 
 		<h1 style="color:rgb(0, 11, 46);position:relative;top:-100px"><b><u><center>Pokemon</center></u></b></h1>
@@ -95,6 +96,7 @@
 	steelTypes = []
 	allPokemon = []
 	allTypes2 = []
+	teams = []
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 function dropdown()
@@ -190,7 +192,7 @@ function dropdown()
 							allPokemon.push(data.recordset[i].pokedexName)
 							allTypes2.push(data.recordset[i].pokemonType2)
 						}
-						else if(data.recordset[i].pokemonType1 == "fairy")
+						else if(data.recordset[i].pokemonType1 == "Fairy")
 						{
 							fairyTypes.push(data.recordset[i].pokedexName)
 							allPokemon.push(data.recordset[i].pokedexName)
@@ -271,12 +273,11 @@ function dropdownTeam()
 			{
 				var data = JSON.parse(xhr.responseText)
 				var option = "";
-
-				for(r in data.recordset)
+				for(r in data)
 				{
-					option += "<option value = '" + data.recordset[r].teamName + "''>" + data.recordset[r].teamName + "</option>"
+					option += "<option value = '" + data[r].teamName + "''>" + data[r].teamName + "</option>"
+					teams.push(data[r].teamName)
 				}
-
 				document.getElementById("team").innerHTML = option;
 			}
 		}
@@ -289,49 +290,66 @@ function dropdownTeam()
 		}
 		};
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-function dropdownTeamMembers()
-	{
-		console.log("dropdownTeamMembers is being called")
+// function dropdownTeamMembers()
+// 	{
+// 		console.log("dropdownTeamMembers is being called")
 
-		var xhr = new XMLHttpRequest();
+// 		var xhr = new XMLHttpRequest();
 
-		xhr.open("GET", "http://localhost:3000/getPokemonTeams", true)
+// 		xhr.open("GET", "http://localhost:3000/getPokemonTeams", true)
 
-		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+// 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
 		
-		xhr.onreadystatechange = () => 
-		{
+// 		xhr.onreadystatechange = () => 
+// 		{
 		
-			if(XMLHttpRequest.DONE && xhr.status == 200)
-			{
-				var data = JSON.parse(xhr.responseText)
-				var option = "";
+// 			if(XMLHttpRequest.DONE && xhr.status == 200)
+// 			{
+// 				console.log(xhr.responseText)
+// 				var data = JSON.parse(xhr.responseText)
+// 				var option = "";
 
+// 				var idx = teams.indexOf(data[r].teamName)
+// 				console.log(idx)
+// 				if(idx >= 0){
+// 					teamMember1 = data.recordset[idx].pokemon1
+// 						teamMember2 = data.recordset[idx].pokemon2
+// 						teamMember3 = data.recordset[idx].pokemon3
+// 						teamMember4 = data.recordset[idx].pokemon4
+// 						teamMember5 = data.recordset[idx].pokemon5
+// 						teamMember6 = data.recordset[idx].pokemon6
+// 				}
+// 				/*
+// 				for (r in teams){
+// 					if(data.recordset[r].teamName == teams[r]){
+// 						teamMember1 = data.recordset[r].pokemon1
+// 						teamMember2 = data.recordset[r].pokemon2
+// 						teamMember3 = data.recordset[r].pokemon3
+// 						teamMember4 = data.recordset[r].pokemon4
+// 						teamMember5 = data.recordset[r].pokemon5
+// 						teamMember6 = data.recordset[r].pokemon6
+// 					}
 
-				teamMember1 = data.recordset[0].pokemon1
-				teamMember2 = data.recordset[0].pokemon2
-				teamMember3 = data.recordset[0].pokemon3
-				teamMember4 = data.recordset[0].pokemon4
-				teamMember5 = data.recordset[0].pokemon5
-				teamMember6 = data.recordset[0].pokemon6
+// 			}*/
+
 				
 
-				document.getElementById("teamMember1").innerHTML = teamMember1;
-				document.getElementById("teamMember2").innerHTML = teamMember2;
-				document.getElementById("teamMember3").innerHTML = teamMember3;
-				document.getElementById("teamMember4").innerHTML = teamMember4;
-				document.getElementById("teamMember5").innerHTML = teamMember5;
-				document.getElementById("teamMember6").innerHTML = teamMember6;
-			}
-		}
-		xhr.send()
-	}
-		function update()
-		{
-		if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-			document.getElementById("output").innerHTML = this.responseText;
-		}
-		};
+// 				document.getElementById("teamMember1").innerHTML = teamMember1;
+// 				document.getElementById("teamMember2").innerHTML = teamMember2;
+// 				document.getElementById("teamMember3").innerHTML = teamMember3;
+// 				document.getElementById("teamMember4").innerHTML = teamMember4;
+// 				document.getElementById("teamMember5").innerHTML = teamMember5;
+// 				document.getElementById("teamMember6").innerHTML = teamMember6;
+// 			}
+// 		}
+// 		xhr.send()
+// 	}
+// 		function update()
+// 		{
+// 		if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+// 			document.getElementById("output").innerHTML = this.responseText;
+// 		}
+// 		};
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 function addPokemon()
 	{
