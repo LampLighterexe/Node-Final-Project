@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -95,6 +96,7 @@
 	steelTypes = []
 	allPokemon = []
 	allTypes2 = []
+	teams = []
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 function dropdown()
@@ -275,6 +277,7 @@ function dropdownTeam()
 				for(r in data.recordset)
 				{
 					option += "<option value = '" + data.recordset[r].teamName + "''>" + data.recordset[r].teamName + "</option>"
+					teams.push(data.recordset[r].teamName)
 				}
 
 				document.getElementById("team").innerHTML = option;
@@ -304,16 +307,33 @@ function dropdownTeamMembers()
 		
 			if(XMLHttpRequest.DONE && xhr.status == 200)
 			{
+				console.log(xhr.responseText)
 				var data = JSON.parse(xhr.responseText)
 				var option = "";
 
+				var idx = teams.indexOf(data[r].teamName)
+				console.log(idx)
+				if(idx >= 0){
+					teamMember1 = data.recordset[idx].pokemon1
+						teamMember2 = data.recordset[idx].pokemon2
+						teamMember3 = data.recordset[idx].pokemon3
+						teamMember4 = data.recordset[idx].pokemon4
+						teamMember5 = data.recordset[idx].pokemon5
+						teamMember6 = data.recordset[idx].pokemon6
+				}
+				/*
+				for (r in teams){
+					if(data.recordset[r].teamName == teams[r]){
+						teamMember1 = data.recordset[r].pokemon1
+						teamMember2 = data.recordset[r].pokemon2
+						teamMember3 = data.recordset[r].pokemon3
+						teamMember4 = data.recordset[r].pokemon4
+						teamMember5 = data.recordset[r].pokemon5
+						teamMember6 = data.recordset[r].pokemon6
+					}
 
-				teamMember1 = data.recordset[0].pokemon1
-				teamMember2 = data.recordset[0].pokemon2
-				teamMember3 = data.recordset[0].pokemon3
-				teamMember4 = data.recordset[0].pokemon4
-				teamMember5 = data.recordset[0].pokemon5
-				teamMember6 = data.recordset[0].pokemon6
+			}*/
+
 				
 
 				document.getElementById("teamMember1").innerHTML = teamMember1;
