@@ -38,7 +38,7 @@
 	</Style>
 	</head>
 
-	<body onload="dropdown(), dropdownTeam()">
+	<body onload="dropdown(), dropdownTeam(), dropdownTeamMembers()">
 		<body style="background-image: url('https://images.unsplash.com/photo-1585314062604-1a357de8b000?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80'); background-size: cover">
 
 		<h1 style="color:rgb(0, 11, 46);position:relative;top:-100px"><b><u><center>Pokemon</center></u></b></h1>
@@ -290,66 +290,66 @@ function dropdownTeam()
 		}
 		};
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-// function dropdownTeamMembers()
-// 	{
-// 		console.log("dropdownTeamMembers is being called")
+function dropdownTeamMembers()
+	{
+		console.log("dropdownTeamMembers is being called")
 
-// 		var xhr = new XMLHttpRequest();
+		var xhr = new XMLHttpRequest();
 
-// 		xhr.open("GET", "http://localhost:3000/getPokemonTeams", true)
+		xhr.open("GET", "http://localhost:3000/getPokemonTeams", true)
 
-// 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
 		
-// 		xhr.onreadystatechange = () => 
-// 		{
+		xhr.onreadystatechange = () => 
+		{
 		
-// 			if(XMLHttpRequest.DONE && xhr.status == 200)
-// 			{
-// 				console.log(xhr.responseText)
-// 				var data = JSON.parse(xhr.responseText)
-// 				var option = "";
+			if(XMLHttpRequest.DONE && xhr.status == 200)
+			{
 
-// 				var idx = teams.indexOf(data[r].teamName)
-// 				console.log(idx)
-// 				if(idx >= 0){
-// 					teamMember1 = data.recordset[idx].pokemon1
-// 						teamMember2 = data.recordset[idx].pokemon2
-// 						teamMember3 = data.recordset[idx].pokemon3
-// 						teamMember4 = data.recordset[idx].pokemon4
-// 						teamMember5 = data.recordset[idx].pokemon5
-// 						teamMember6 = data.recordset[idx].pokemon6
-// 				}
-// 				/*
-// 				for (r in teams){
-// 					if(data.recordset[r].teamName == teams[r]){
-// 						teamMember1 = data.recordset[r].pokemon1
-// 						teamMember2 = data.recordset[r].pokemon2
-// 						teamMember3 = data.recordset[r].pokemon3
-// 						teamMember4 = data.recordset[r].pokemon4
-// 						teamMember5 = data.recordset[r].pokemon5
-// 						teamMember6 = data.recordset[r].pokemon6
-// 					}
+				var data = JSON.parse(xhr.responseText)
+				var option = "";
 
-// 			}*/
+				var idx = teams.indexOf(data[r].teamName)
+				console.log(idx)
+				if(idx >= 0){
+						teamMember1 = data.recordset[idx].pokemon1
+						teamMember2 = data.recordset[idx].pokemon2
+						teamMember3 = data.recordset[idx].pokemon3
+						teamMember4 = data.recordset[idx].pokemon4
+						teamMember5 = data.recordset[idx].pokemon5
+						teamMember6 = data.recordset[idx].pokemon6
+				}
+				/*
+				for (r in teams){
+					if(data.recordset[r].teamName == teams[r]){
+						teamMember1 = data.recordset[r].pokemon1
+						teamMember2 = data.recordset[r].pokemon2
+						teamMember3 = data.recordset[r].pokemon3
+						teamMember4 = data.recordset[r].pokemon4
+						teamMember5 = data.recordset[r].pokemon5
+						teamMember6 = data.recordset[r].pokemon6
+					}
+
+			}*/
 
 				
 
-// 				document.getElementById("teamMember1").innerHTML = teamMember1;
-// 				document.getElementById("teamMember2").innerHTML = teamMember2;
-// 				document.getElementById("teamMember3").innerHTML = teamMember3;
-// 				document.getElementById("teamMember4").innerHTML = teamMember4;
-// 				document.getElementById("teamMember5").innerHTML = teamMember5;
-// 				document.getElementById("teamMember6").innerHTML = teamMember6;
-// 			}
-// 		}
-// 		xhr.send()
-// 	}
-// 		function update()
-// 		{
-// 		if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-// 			document.getElementById("output").innerHTML = this.responseText;
-// 		}
-// 		};
+				document.getElementById("teamMember1").innerHTML = teamMember1;
+				document.getElementById("teamMember2").innerHTML = teamMember2;
+				document.getElementById("teamMember3").innerHTML = teamMember3;
+				document.getElementById("teamMember4").innerHTML = teamMember4;
+				document.getElementById("teamMember5").innerHTML = teamMember5;
+				document.getElementById("teamMember6").innerHTML = teamMember6;
+			}
+		}
+		xhr.send()
+	}
+		function update()
+		{
+		if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+			document.getElementById("output").innerHTML = this.responseText;
+		}
+		};
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 function addPokemon()
 	{
@@ -824,6 +824,29 @@ for(i=0; i < steelTypes.length; i++){
 			}; if (document.getElementById("pokemon6").value == steelTypes[i]){
 				document.getElementById("pokemon6Type").innerHTML = "<img src = '" + steelType + "''>";
 				document.getElementById("pokemon6Type").classList.replace(color6, "steel")
+			};
+		};
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//psychic types	
+for(i=0; i < psychicTypes.length; i++){
+			if (document.getElementById("pokemon1").value == psychicTypes[i]){
+				document.getElementById("pokemon1Type").innerHTML = "<img src = '" + psychicType + "''>";
+				document.getElementById("pokemon1Type").classList.replace(color1, "psychic")
+			}; if (document.getElementById("pokemon2").value == psychicTypes[i]){
+				document.getElementById("pokemon2Type").innerHTML = "<img src = '" + psychicType + "''>";
+				document.getElementById("pokemon2Type").classList.replace(color2, "psychic")
+			}; if (document.getElementById("pokemon3").value == psychicTypes[i]){
+				document.getElementById("pokemon3Type").innerHTML = "<img src = '" + psychicType + "''>";
+				document.getElementById("pokemon3Type").classList.replace(color3, "psychic")
+			}; if (document.getElementById("pokemon4").value == psychicTypes[i]){
+				document.getElementById("pokemon4Type").innerHTML = "<img src = '" + psychicType + "''>";
+				document.getElementById("pokemon4Type").classList.replace(color4, "psychic")
+			}; if (document.getElementById("pokemon5").value == psychicTypes[i]){
+				document.getElementById("pokemon5Type").innerHTML = "<img src = '" + psychicType + "''>";
+				document.getElementById("pokemon5Type").classList.replace(color5, "psychic")
+			}; if (document.getElementById("pokemon6").value == psychicTypes[i]){
+				document.getElementById("pokemon6Type").innerHTML = "<img src = '" + psychicType + "''>";
+				document.getElementById("pokemon6Type").classList.replace(color6, "psychic")
 			};
 		};
 /////////////////////////////////////////////////////////////////////////////////////////////////////
