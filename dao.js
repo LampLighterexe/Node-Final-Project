@@ -64,8 +64,8 @@ async function getTeams()
         // make sure that any items are correctly URL encoded in the connection string
         await sql.connect(CONNECTION)
 
-        var pokemonTeams = await sql.query("Select teamName from Team")
-        console.dir("Selected pokemon names in dao")
+        var pokemonTeams = await sql.query("Select * from Team")
+        // console.dir("Selected pokemon names in dao")
 
         //console.log(pokemonteams)
         return pokemonTeams;
