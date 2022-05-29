@@ -94,6 +94,7 @@
 	psychicTypes = []
 	rockTypes = []
 	steelTypes = []
+	nullTypes = []
 	allPokemon = []
 	allTypes2 = []
 	teams = []
@@ -231,6 +232,12 @@ function dropdown()
 						else if(data.recordset[i].pokemonType1 == "Steel")
 						{
 							steelTypes.push(data.recordset[i].pokedexName)
+							allPokemon.push(data.recordset[i].pokedexName)
+							allTypes2.push(data.recordset[i].pokemonType2)
+						}
+						else if(data.recordset[i].pokemonType1 == "null")
+						{
+							nullTypes.push(data.recordset[i].pokedexName)
 							allPokemon.push(data.recordset[i].pokedexName)
 							allTypes2.push(data.recordset[i].pokemonType2)
 						}
@@ -847,6 +854,29 @@ for(i=0; i < psychicTypes.length; i++){
 			}; if (document.getElementById("pokemon6").value == psychicTypes[i]){
 				document.getElementById("pokemon6Type").innerHTML = "<img src = '" + psychicType + "''>";
 				document.getElementById("pokemon6Type").classList.replace(color6, "psychic")
+			};
+		};
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//null types	
+for(i=0; i < psychicTypes.length; i++){
+			if (document.getElementById("pokemon1").value == nullTypes[i]){
+				document.getElementById("pokemon1Type").innerHTML = "<img src = '" + pokeball + "''>";
+				document.getElementById("pokemon1Type").classList.replace(color1, "blank")
+			}; if (document.getElementById("pokemon2").value == nullTypes[i]){
+				document.getElementById("pokemon2Type").innerHTML = "<img src = '" + pokeball + "''>";
+				document.getElementById("pokemon2Type").classList.replace(color2, "blank")
+			}; if (document.getElementById("pokemon3").value == nullTypes[i]){
+				document.getElementById("pokemon3Type").innerHTML = "<img src = '" + pokeball + "''>";
+				document.getElementById("pokemon3Type").classList.replace(color3, "blank")
+			}; if (document.getElementById("pokemon4").value == nullTypes[i]){
+				document.getElementById("pokemon4Type").innerHTML = "<img src = '" + pokeball + "''>";
+				document.getElementById("pokemon4Type").classList.replace(color4, "blank")
+			}; if (document.getElementById("pokemon5").value == nullTypes[i]){
+				document.getElementById("pokemon5Type").innerHTML = "<img src = '" + pokeball + "''>";
+				document.getElementById("pokemon5Type").classList.replace(color5, "blank")
+			}; if (document.getElementById("pokemon6").value == nullTypes[i]){
+				document.getElementById("pokemon6Type").innerHTML = "<img src = '" + pokeball + "''>";
+				document.getElementById("pokemon6Type").classList.replace(color6, "blank")
 			};
 		};
 /////////////////////////////////////////////////////////////////////////////////////////////////////
