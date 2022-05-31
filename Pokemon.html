@@ -286,6 +286,7 @@ function dropdownTeam()
 					teams.push(data[r].teamName)
 				}
 				document.getElementById("team").innerHTML = option;
+				
 			}
 		}
 		xhr.send()
@@ -299,9 +300,10 @@ function dropdownTeam()
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 function dropdownTeamMembers()
 	{
-		console.log("dropdownTeamMembers is being called")
+		// console.log("dropdownTeamMembers is being called")
 
 		var xhr = new XMLHttpRequest();
+		var menu = document.getElementById("team").value
 
 		xhr.open("GET", "http://localhost:3000/getPokemonTeams", true)
 
@@ -316,30 +318,23 @@ function dropdownTeamMembers()
 				var data = JSON.parse(xhr.responseText)
 				var option = "";
 
-				var idx = teams.indexOf(data[r].teamName)
-				console.log(idx)
-				if(idx >= 0){
-						teamMember1 = data.recordset[idx].pokemon1
-						teamMember2 = data.recordset[idx].pokemon2
-						teamMember3 = data.recordset[idx].pokemon3
-						teamMember4 = data.recordset[idx].pokemon4
-						teamMember5 = data.recordset[idx].pokemon5
-						teamMember6 = data.recordset[idx].pokemon6
-				}
-				/*
-				for (r in teams){
-					if(data.recordset[r].teamName == teams[r]){
-						teamMember1 = data.recordset[r].pokemon1
-						teamMember2 = data.recordset[r].pokemon2
-						teamMember3 = data.recordset[r].pokemon3
-						teamMember4 = data.recordset[r].pokemon4
-						teamMember5 = data.recordset[r].pokemon5
-						teamMember6 = data.recordset[r].pokemon6
+				teamMember1 = ""
+				teamMember2 = ""
+				teamMember3 = ""
+				teamMember4 = ""
+				teamMember5 = ""
+				teamMember6 = ""
+
+				for(r in data){
+					if (data[r].teamName == menu){
+						teamMember1 = data[r].pokemon1
+						teamMember2 = data[r].pokemon2
+						teamMember3 = data[r].pokemon3
+						teamMember4 = data[r].pokemon4
+						teamMember5 = data[r].pokemon5
+						teamMember6 = data[r].pokemon6
 					}
-
-			}*/
-
-				
+				}
 
 				document.getElementById("teamMember1").innerHTML = teamMember1;
 				document.getElementById("teamMember2").innerHTML = teamMember2;
